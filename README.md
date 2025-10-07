@@ -13,4 +13,13 @@ gender----- ----------------------- nullable,max:50
 address --------------------------- nullable,max:150
 emergency_contact_name ------------ nullable,max:150
 emergency_contact_phone------------ nullable,max:150
-``
+```
+
+### Accreditation
+
+```
+title ------------------------ required,max:100
+year-------------------------- required,max:100
+description------------------- required,max:100
+
+```
