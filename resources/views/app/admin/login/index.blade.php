@@ -12,7 +12,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset("imgs/theme/favicon.svg") }}" />
     <!-- Template CSS -->
     <script src="{{ asset("js/vendors/color-modes.js") }}"></script>
     <link href="{{ asset("css/main.css") }}" rel="stylesheet" type="text/css" />
@@ -26,11 +26,8 @@
 <body>
     <main>
         <section class="content-main">
-
             <div class="d-flex justify-content-center align-items-center vh-80">
-
                 <div class="col-12">
-
                     <div class="card mx-auto card-login">
                         <div class="card-body">
                             <h4 class="card-title mb-4">Sign in</h4>
@@ -60,8 +57,6 @@
                     </div>
                 </div>
             </div>
-
-
         </section>
     </main>
     <script src="{{ asset("js/vendors/jquery-3.6.0.min.js") }}"></script>
