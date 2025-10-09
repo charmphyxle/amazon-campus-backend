@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\NewsAndEventController as AdminNewsAndEventController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,7 @@ Route::middleware(['guest'])->group(function () {
 
 
 Route::resource('news-and-events', AdminNewsAndEventController::class);
+Route::resource('gallery', AdminGalleryController::class);
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {
