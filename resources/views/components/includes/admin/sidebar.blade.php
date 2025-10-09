@@ -16,7 +16,15 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="menu-item has-submenu">
+
+             <li class="menu-item">
+                <a class="menu-link" href="page-reviews.html">
+                    <i class="icon material-icons md-comment"></i>
+                    <span class="text">News & Events</span>
+                </a>
+            </li>
+
+            {{-- <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-products-list.html">
                     <i class="icon material-icons md-shopping_bag"></i>
                     <span class="text">Products</span>
@@ -98,7 +106,7 @@
                     <i class="icon material-icons md-pie_chart"></i>
                     <span class="text">Statistics</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
         <hr />
         <ul class="menu-aside">
