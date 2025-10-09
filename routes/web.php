@@ -6,14 +6,13 @@ use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\NewsAndEventController as AdminNewsAndEventController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BaseController::class, 'index'])->name('admin.index');
-
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login.index');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 });
 
-
+//admin routes
+Route::get('/', [BaseController::class, 'index'])->name('admin.index');
 Route::resource('news-and-events', AdminNewsAndEventController::class);
 Route::resource('gallery', AdminGalleryController::class);
 
