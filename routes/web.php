@@ -12,9 +12,11 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 });
 
+
+Route::resource('news-and-events', AdminNewsAndEventController::class);
+
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {
-        Route::resource('news-and-events', AdminNewsAndEventController::class);
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
