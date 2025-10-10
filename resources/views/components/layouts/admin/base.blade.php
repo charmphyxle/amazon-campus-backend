@@ -40,6 +40,7 @@
     <!-- Main Script -->
     <script src="{{ asset("js/main.js") }}" type="text/javascript"></script>
     <script src="{{ asset("js/custom-chart.js") }}" type="text/javascript"></script>
+    @stack('scripts')
 </body>
 
 </html>

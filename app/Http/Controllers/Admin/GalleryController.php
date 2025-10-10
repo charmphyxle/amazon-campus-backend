@@ -27,7 +27,7 @@ class GalleryController extends Controller
             foreach ($images as $image) {
                 $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();;
 
-                Storage::putFileAs('public/temp-gallery-images', $image, $imageName);
+                Storage::disk('public')->putFileAs('temp-gallery-images', $image, $imageName);
 
                 TempImage::create([
                     'image' => $imageName,
@@ -59,7 +59,8 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('app.admin.gallery.create');
+        $tempImages = TempImage::all();
+        return view('app.admin.gallery.create', compact('tempImages'));
     }
 
     /**
@@ -102,7 +103,7 @@ class GalleryController extends Controller
      */
     public function show(Gallery $gallery)
     {
-        //
+        $tempImages = TempImage::all();
     }
 
     /**

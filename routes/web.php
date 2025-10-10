@@ -15,6 +15,7 @@ Route::middleware(['guest'])->group(function () {
 Route::get('/', [BaseController::class, 'index'])->name('admin.index');
 Route::resource('news-and-events', AdminNewsAndEventController::class);
 Route::post('/gallery/add-images', [AdminGalleryController::class, 'addImages'])->name('gallery.addImages');
+Route::delete('/gallery/{temp_image}/delete', [AdminGalleryController::class, 'deleteImage'])->name('gallery.deleteImage');
 Route::resource('gallery', AdminGalleryController::class);
 
 Route::middleware(['auth'])->group(function () {

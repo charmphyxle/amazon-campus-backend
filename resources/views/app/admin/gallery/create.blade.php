@@ -8,7 +8,7 @@
                 <div class="content-header">
                     <h2 class="content-title">Gallery form</h2>
                     <div>
-                        <button class="btn btn-md rounded font-sm hover-up">Publich</button>
+                        <button id="gallerySubmitBtn" class="btn btn-md rounded font-sm hover-up">Publish</button>
                     </div>
                 </div>
             </div>
@@ -18,15 +18,27 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="galleryForm" action="{{ route("gallery.store") }}" method="POST">
+                            @csrf
+                            @method("POST")
                             <div class="mb-4">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <label for="title" class="form-label">Gallery title</label>
-                                <input type="text" placeholder="Type here" class="form-control" id="title"
+                                <input type="text" placeholder="Type here" class="form-control" name="title" value="{{ old('title') }}"
                                     required />
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Category</label>
                                 <select class="form-select" name="category" required>
+                                    <option selected disabled>Select category</option>
                                     <option value="Adidas"> Adidas </option>
                                     <option value="Nike"> Nike </option>
                                     <option value="Puma"> Puma </option>
@@ -34,7 +46,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Description</label>
-                                <textarea placeholder="Type here" class="form-control" rows="4" name="description" required></textarea>
+                                <textarea placeholder="Type here" class="form-control" rows="4" name="description" required >{{ old('description') }}</textarea>
                             </div>
                         </form>
                     </div>
@@ -53,13 +65,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>
-                                        <button class="btn btn-md rounded font-sm hover-up">Delete</button>
-                                    </td>
-                                </tr>
+                                @forelse ($tempImages as $tempImage)
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            <img src="{{ Storage::url("temp-gallery-images/" . $tempImage->image) }}"
+                                                alt="" width="100">
+                                        </td>
+                                        <td>
+                                            <form action="{{ route("gallery.deleteImage", $tempImage) }}" method="post">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button class="btn btn-md rounded font-sm hover-up">Delete</button>
+                                            </form>
+
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="3" class="text-center">No images added yet.</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -71,9 +97,9 @@
                         <h4>Media</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('gallery.addImages') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route("gallery.addImages") }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('POST')
+                            @method("POST")
                             <div class="input-upload">
                                 <img src="assets/imgs/theme/upload.svg" alt="" />
                                 <input class="form-control" type="file" name="images[]" multiple />
@@ -85,4 +111,12 @@
             </div>
         </div>
     </section>
+
+    @pushOnce("scripts")
+        <script>
+            $('#gallerySubmitBtn').on('click', function() {
+                $('#galleryForm').submit();
+            });
+        </script>
+    @endPushOnce
 @endsection
