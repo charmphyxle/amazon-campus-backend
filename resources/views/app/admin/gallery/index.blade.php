@@ -24,20 +24,37 @@
             <div class="card-body">
                 <div class="row gx-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5">
 
-                    <div class="col">
-                        <div class="card card-product-grid">
-                            <a href="#" class="img-wrap"> <img src="assets/imgs/items/1.jpg" alt="Product" /> </a>
-                            <div class="info-wrap">
-                                <a href="#" class="title text-truncate">Haagen-Dazs Caramel Cone Ice</a>
-                                <div class="price mb-2">$179.00</div>
-                                <a href="#" class="btn btn-sm font-sm rounded btn-brand"> <i
-                                        class="material-icons md-edit"></i> Edit </a>
-                                <a href="#" class="btn btn-sm font-sm btn-light rounded"> <i
-                                        class="material-icons md-delete_forever"></i> Delete </a>
+                    @forelse ($galleries as $gallery)
+                        <div class="col">
+                            <div class="card card-product-grid">
+                                <a href="#" class="img-wrap"> <img
+                                        src="{{ Storage::url("gallery-images/" . $gallery->images[0]->image) }}"
+                                        alt="gallery" />
+                                </a>
+                                <div class="info-wrap">
+
+                                    <a href="#" class="title text-truncate">{{ $gallery->title }}</a>
+
+                                    <div class="d-flex gap-2 mt-2 justify-content-between align-items-center">
+                                        <a href="{{ route("gallery.show", $gallery) }}"
+                                            class="btn rounded font-sm hover-up btn-info mt-3"> <i
+                                                class="material-icons md-edit"></i>
+                                            Edit
+                                        </a>
+                                        <form action="{{ route("gallery.destroy", $gallery) }}" method="post">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-md rounded font-sm hover-up mt-3">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                        
-                    </div>
+                    @empty
+                    @endforelse
                 </div>
             </div>
         </div>
