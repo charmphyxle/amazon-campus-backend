@@ -94,7 +94,7 @@
             <div class="col-lg-3">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h4>Media</h4>
+                        <h4>Image form</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ route("gallery.addImages") }}" method="POST" enctype="multipart/form-data">
