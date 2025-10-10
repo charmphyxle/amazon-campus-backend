@@ -9,6 +9,11 @@ use App\Http\Requests\Admin\UpdateGalleryRequest;
 
 class GalleryController extends Controller
 {
+
+    public function addImages() {}
+    public function deleteImage() {}
+
+
     /**
      * Display a listing of the resource.
      */
