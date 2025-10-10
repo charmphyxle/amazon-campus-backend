@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div class="screen-overlay"></div>
 
     @include("components.includes.admin.sidebar")
