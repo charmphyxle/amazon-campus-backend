@@ -19,7 +19,7 @@ Route::post('/gallery/add-images', [AdminGalleryController::class, 'addImages'])
 Route::delete('/gallery/{temp_image}/delete', [AdminGalleryController::class, 'deleteTempImage'])->name('gallery.deleteTempImage');
 Route::delete('/gallery/{image}/delete-image', [AdminGalleryController::class, 'deleteImage'])->name('gallery.deleteImage');
 Route::resource('gallery', AdminGalleryController::class)->except(['show']);
-Route::resource('testimonials', AdminTestimonialController::class);
+Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {
