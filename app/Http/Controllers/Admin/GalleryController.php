@@ -107,14 +107,7 @@ class GalleryController extends Controller
 
         return redirect()->back()->with('success', 'Product is added successfully.');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Gallery $gallery)
-    {
-        $tempImages = TempImage::all();
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

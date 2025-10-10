@@ -17,7 +17,7 @@ Route::resource('news-and-events', AdminNewsAndEventController::class);
 Route::post('/gallery/add-images', [AdminGalleryController::class, 'addImages'])->name('gallery.addImages');
 Route::delete('/gallery/{temp_image}/delete', [AdminGalleryController::class, 'deleteTempImage'])->name('gallery.deleteTempImage');
 Route::delete('/gallery/{image}/delete-image', [AdminGalleryController::class, 'deleteImage'])->name('gallery.deleteImage');
-Route::resource('gallery', AdminGalleryController::class);
+Route::resource('gallery', AdminGalleryController::class)->except(['show']);
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {
