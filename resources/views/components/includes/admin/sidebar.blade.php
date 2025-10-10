@@ -18,7 +18,7 @@
             </li>
 
              <li class="menu-item">
-                <a class="menu-link" href="page-reviews.html">
+                <a class="menu-link" href="{{ route('news-and-events.index') }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">News & Events</span>
                 </a>
