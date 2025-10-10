@@ -36,7 +36,7 @@
                                     <a href="#" class="title text-truncate">{{ $gallery->title }}</a>
 
                                     <div class="d-flex gap-2 mt-2 justify-content-between align-items-center">
-                                        <a href="{{ route("gallery.show", $gallery) }}"
+                                        <a href="{{ route("gallery.edit", $gallery) }}"
                                             class="btn rounded font-sm hover-up btn-info mt-3"> <i
                                                 class="material-icons md-edit"></i>
                                             Edit

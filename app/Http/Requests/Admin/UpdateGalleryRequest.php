@@ -22,7 +22,7 @@ class UpdateGalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-             'title' => ['required', 'string', 'max:255', 'unique:galleries,title'], 
+             'title' => ['required', 'string', 'max:255'], 
             'description' => ['required', 'string', 'max:255'], 
             'category' => ['required', 'string', 'max:255'], 
         ];

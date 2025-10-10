@@ -40,10 +40,17 @@ class GalleryController extends Controller
         return back();
     }
 
-    public function deleteImage(TempImage $tempImage)
+    public function deleteTempImage(TempImage $tempImage)
     {
         Storage::delete('public/temp-gallery-images/' . $tempImage->image);
         $tempImage->delete();
+        return back()->with('success', 'Image deleted successfully!');
+    }
+
+    public function deleteImage(Image $image)
+    {
+        Storage::delete('public/gallery-images/' . $image->image);
+        $image->delete();
         return back()->with('success', 'Image deleted successfully!');
     }
 
@@ -114,7 +121,8 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        $tempImages = TempImage::all();
+        return view('app.admin.gallery.edit', compact('gallery', 'tempImages'));
     }
 
     /**
@@ -141,6 +149,8 @@ class GalleryController extends Controller
                 $tempProductImage->delete();
             }
         }
+
+        return redirect()->back()->with('success', 'Gallery is updated successfully.');
     }
 
     /**

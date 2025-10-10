@@ -18,9 +18,9 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form id="galleryForm" action="{{ route("gallery.store") }}" method="POST">
+                        <form id="galleryEditForm" action="{{ route("gallery.update", $gallery) }}" method="POST">
                             @csrf
-                            @method("POST")
+                            @method("PUT")
                             <div class="mb-4">
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -32,13 +32,13 @@
                                     </div>
                                 @endif
                                 <label for="title" class="form-label">Gallery title</label>
-                                <input type="text" placeholder="Type here" class="form-control" name="title" value="{{ old('title') }}"
-                                    required />
+                                <input type="text" placeholder="Type here" class="form-control" name="title"
+                                    value="{{ $gallery->title }}" required />
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Category</label>
                                 <select class="form-select" name="category" required>
-                                    <option selected disabled>Select category</option>
+                                    <option selected value="{{ $gallery->category }}">{{ $gallery->category }}</option>
                                     <option value="Adidas"> Adidas </option>
                                     <option value="Nike"> Nike </option>
                                     <option value="Puma"> Puma </option>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Description</label>
-                                <textarea placeholder="Type here" class="form-control" rows="4" name="description" required >{{ old('description') }}</textarea>
+                                <textarea placeholder="Type here" class="form-control" rows="4" name="description" required>{{ $gallery->description }}</textarea>
                             </div>
                         </form>
                     </div>
@@ -81,11 +81,27 @@
 
                                         </td>
                                     </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="3" class="text-center">No images added yet.</td>
-                                    </tr>
+                                @empty                                   
                                 @endforelse
+                                @forelse ($gallery->images as $image)
+                                    <tr>
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>
+                                            <img src="{{ Storage::url("gallery-images/" . $image->image) }}"
+                                                alt="" width="100">
+                                        </td>
+                                        <td>
+                                            <form action="{{ route("gallery.deleteImage", $image) }}" method="post">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button class="btn btn-md rounded font-sm hover-up">Delete</button>
+                                            </form>
+
+                                        </td>
+                                    </tr>
+                                @empty                                   
+                                @endforelse
+
                             </tbody>
                         </table>
                     </div>
@@ -115,7 +131,7 @@
     @pushOnce("scripts")
         <script>
             $('#gallerySubmitBtn').on('click', function() {
-                $('#galleryForm').submit();
+                $('#galleryEditForm').submit();
             });
         </script>
     @endPushOnce
