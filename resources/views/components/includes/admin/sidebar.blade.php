@@ -29,6 +29,12 @@
                     <span class="text">Gallery</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a class="menu-link" href="{{ route("testimonials.index") }}">
+                    <i class="icon material-icons md-comment"></i>
+                    <span class="text">Testimonials</span>
+                </a>
+            </li>
 
             {{-- <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-products-list.html">
