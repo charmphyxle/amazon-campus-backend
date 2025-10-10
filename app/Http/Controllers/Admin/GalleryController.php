@@ -35,7 +35,9 @@ class GalleryController extends Controller
             }
         }
 
-        return back()->with('success', 'Images uploaded successfully!');
+        // toast('Images uploaded successfully!','success');
+        alert()->success('SuccessAlert', 'Lorem ipsum dolor sit amet.');
+        return back();
     }
 
     public function deleteImage(TempImage $tempImage)
