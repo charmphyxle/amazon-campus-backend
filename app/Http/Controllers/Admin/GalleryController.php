@@ -6,12 +6,44 @@ use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use App\Http\Requests\Admin\StoreGalleryRequest;
 use App\Http\Requests\Admin\UpdateGalleryRequest;
+use App\Models\Image;
+use App\Models\TempImage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class GalleryController extends Controller
 {
 
-    public function addImages() {}
-    public function deleteImage() {}
+    public function addImages(Request $request)
+    {
+        $inputs = $request->validate([
+            'images' => 'required|array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,webp|max:2048' // 2MB Max
+        ]);
+
+        if ($request->has('images')) {
+            $images = $request->file('images');
+            foreach ($images as $image) {
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();;
+
+                Storage::putFileAs('public/temp-gallery-images', $image, $imageName);
+
+                TempImage::create([
+                    'image' => $imageName,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Images uploaded successfully!');
+    }
+
+    public function deleteImage(TempImage $tempImage)
+    {
+        Storage::delete('public/temp-gallery-images/' . $tempImage->image);
+        $tempImage->delete();
+        return back()->with('success', 'Image deleted successfully!');
+    }
 
 
     /**
@@ -19,7 +51,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        return view('app.admin.gallery.index');
     }
 
     /**
@@ -27,7 +59,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.admin.gallery.create');
     }
 
     /**
@@ -35,7 +67,34 @@ class GalleryController extends Controller
      */
     public function store(StoreGalleryRequest $request)
     {
-        //
+        $inputs = $request->validated();
+        $tempImages = TempImage::all();
+
+        if (!filled($tempImages)) {
+            return redirect()->back()->withErrors('Please add at least one product image.');
+        }
+
+        $inputs['slug'] = Str::slug($inputs['title'], '-');
+        $gallery = Gallery::create($inputs);
+
+        if ($tempImages->isEmpty()) {
+            return redirect()->back()->withErrors('Please add at least one product image.');
+        }
+
+        foreach ($tempImages as $tempProductImage) {
+            Storage::disk('public')->move(
+                'temp-gallery-images/' . $tempProductImage->image,
+                'gallery-images/' . $tempProductImage->image
+            );
+
+            Image::create([
+                'gallery_id' => $gallery->id,
+                'image' => $tempProductImage->image,
+            ]);
+            $tempProductImage->delete();
+        }
+
+        return redirect()->back()->with('success', 'Product is added successfully.');
     }
 
     /**
@@ -59,7 +118,25 @@ class GalleryController extends Controller
      */
     public function update(UpdateGalleryRequest $request, Gallery $gallery)
     {
-        //
+        $inputs = $request->validated();
+        $inputs['slug'] = Str::slug($inputs['title'], '-');
+        $gallery->update($inputs);
+        $tempImages = TempImage::all();
+
+        if ($tempImages) {
+            foreach ($tempImages as $tempProductImage) {
+                Storage::disk('public')->move(
+                    'temp-gallery-images/' . $tempProductImage->image,
+                    'gallery-images/' . $tempProductImage->image
+                );
+
+                Image::create([
+                    'gallery_id' => $gallery->id,
+                    'image' => $tempProductImage->image,
+                ]);
+                $tempProductImage->delete();
+            }
+        }
     }
 
     /**
@@ -67,6 +144,7 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        $gallery->delete();
+        return redirect()->back()->with('success', 'Gallery is deleted successfully.');
     }
 }

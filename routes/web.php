@@ -14,6 +14,7 @@ Route::middleware(['guest'])->group(function () {
 //admin routes
 Route::get('/', [BaseController::class, 'index'])->name('admin.index');
 Route::resource('news-and-events', AdminNewsAndEventController::class);
+Route::post('/gallery/add-images', [AdminGalleryController::class, 'addImages'])->name('gallery.addImages');
 Route::resource('gallery', AdminGalleryController::class);
 
 Route::middleware(['auth'])->group(function () {

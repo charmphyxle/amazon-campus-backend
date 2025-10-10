@@ -17,10 +17,16 @@
                 </a>
             </li>
 
-             <li class="menu-item">
-                <a class="menu-link" href="{{ route('news-and-events.index') }}">
+            <li class="menu-item">
+                <a class="menu-link" href="{{ route("news-and-events.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">News & Events</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="{{ route("gallery.index") }}">
+                    <i class="icon material-icons md-comment"></i>
+                    <span class="text">Gallery</span>
                 </a>
             </li>
 
