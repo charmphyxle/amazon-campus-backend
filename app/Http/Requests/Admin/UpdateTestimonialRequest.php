@@ -11,7 +11,7 @@ class UpdateTestimonialRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateTestimonialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'content' => ['required', 'max:1000'],
+            'name' => ['required', 'max:255'],
+            'designation' => ['required', 'max:255'],
+            'career_before' => ['required', 'max:255'],
+            'career_after' => ['required', 'max:255'],
+            'class_year' => ['required', 'numeric', 'digits:4'],
+            'batch' => ['required', 'max:255'],
         ];
     }
 }

@@ -22,7 +22,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.admin.testimonials.create');
     }
 
     /**
@@ -30,15 +30,9 @@ class TestimonialController extends Controller
      */
     public function store(StoreTestimonialRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Testimonial $testimonial)
-    {
-        //
+        $inputs = $request->validated();
+        Testimonial::create($inputs);
+        return to_route('testimonials.index')->with('success', 'Testimonial created successfully.');
     }
 
     /**
@@ -46,7 +40,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
-        //
+        return view('app.admin.testimonials.edit', compact('testimonial'));
     }
 
     /**
@@ -54,7 +48,9 @@ class TestimonialController extends Controller
      */
     public function update(UpdateTestimonialRequest $request, Testimonial $testimonial)
     {
-        //
+        $inputs = $request->validated();
+        $testimonial->update($inputs);
+        return to_route('testimonials.edit')->with('success', 'Testimonial created successfully.');
     }
 
     /**
@@ -62,6 +58,7 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
-        //
+        $testimonial->delete();
+        return to_route('testimonials.index')->with('success', 'Testimonial deleted successfully.');
     }
 }
