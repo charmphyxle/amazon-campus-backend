@@ -6,7 +6,7 @@
             <div>
                 <h2 class="content-title card-title">Application Form List</h2>
                 <p>Lorem ipsum dolor sit amet.</p>
-            </div>           
+            </div>
         </div>
         <div class="card mb-4">
             <header class="card-header">
@@ -39,34 +39,38 @@
                         <th>First name</th>
                         <th>Last name</th>
                         <th>Email</th>
-                        <th>Phone</th>                       
+                        <th>Phone</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
-                        @forelse ($applicationForms as $applicationForm)
+                        @forelse ($applicationForms as $index => $applicationForm)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $applicationForms->firstItem() + $index }}</td>
                                 <td>{{ $applicationForm->first_name }}</td>
                                 <td>{{ $applicationForm->last_name }}</td>
                                 <td>{{ $applicationForm->email }}</td>
-                                <td>{{ $applicationForm->phone }}</td>                                
+                                <td>{{ $applicationForm->phone }}</td>
                                 <td>
-                                    <a href="{{ route("application-forms.show", $applicationForm) }}"
-                                        class="btn btn-sm font-sm rounded btn-info">Show</a>
-                                    <form action="{{ route("application-forms.destroy", $applicationForm) }}" method="POST"
-                                        class="d-inline">
-                                        @csrf
-                                        @method("DELETE")
-                                        <button type="submit" class="btn btn-sm font-sm btn-brand rounded">Delete</button>
-                                    </form>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route("application-forms.show", $applicationForm) }}"
+                                            class="btn btn-sm font-sm rounded btn-info">Show</a>
+                                        <form action="{{ route("application-forms.destroy", $applicationForm) }}"
+                                            method="POST" class="d-inline">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button type="submit"
+                                                class="btn btn-sm font-sm btn-brand rounded">Delete</button>
+                                        </form>
+                                    </div>
+
                                 </td>
                             </tr>
                         @empty
-                        <tr>
-                            <td colspan="6" align="center">
-                                No application form found.
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="6" align="center">
+                                    No application form found.
+                                </td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>
