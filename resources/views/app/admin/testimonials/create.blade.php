@@ -8,7 +8,7 @@
                 <div class="content-header">
                     <h2 class="content-title">Testimonial form</h2>
                     <div>
-                        <button id="gallerySubmitBtn" class="btn btn-md rounded font-sm hover-up">Publish</button>
+                        <button id="testimonialSubmitBtn" class="btn btn-md rounded font-sm hover-up">Publish</button>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form id="galleryForm" action="{{ route("testimonials.store") }}" method="POST">
+                        <form id="testimonialForm" action="{{ route("testimonials.store") }}" method="POST">
                             @csrf
                             @method("POST")
                             <div class="row">
@@ -71,72 +71,15 @@
 
                         </form>
                     </div>
-                </div>
-                {{-- <div class="card mb-4">
-                    <div class="card-header">
-                        <h4>Gallery items</h4>
-                    </div>
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Images</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($tempImages as $tempImage)
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>
-                                            <img src="{{ Storage::url("temp-gallery-images/" . $tempImage->image) }}"
-                                                alt="" width="100">
-                                        </td>
-                                        <td>
-                                            <form action="{{ route("gallery.deleteTempImage", $tempImage) }}" method="post">
-                                                @csrf
-                                                @method("DELETE")
-                                                <button class="btn btn-md rounded font-sm hover-up">Delete</button>
-                                            </form>
-
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="3" class="text-center">No images added yet.</td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                </div> --}}
-            </div>
-            {{-- <div class="col-lg-3">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h4>Image form</h4>
-                    </div>
-                    <div class="card-body">
-                        <form action="{{ route("gallery.addImages") }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method("POST")
-                            <div class="input-upload">
-                                <img src="assets/imgs/theme/upload.svg" alt="" />
-                                <input class="form-control" type="file" name="images[]" multiple />
-                            </div>
-                            <button class="btn btn-md rounded font-sm hover-up mt-3">Add images</button>
-                        </form>
-                    </div>
-                </div>
-            </div> --}}
+                </div>                
+            </div>            
         </div>
     </section>
 
     @pushOnce("scripts")
         <script>
-            $('#gallerySubmitBtn').on('click', function() {
-                $('#galleryForm').submit();
+            $('#testimonialSubmitBtn').on('click', function() {
+                $('#testimonialForm').submit();
             });
         </script>
     @endPushOnce
