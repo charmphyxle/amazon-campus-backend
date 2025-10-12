@@ -25,7 +25,7 @@ class GalleryController extends Controller
         if ($request->has('images')) {
             $images = $request->file('images');
             foreach ($images as $image) {
-                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();;
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
 
                 Storage::disk('public')->putFileAs('temp-gallery-images', $image, $imageName);
 

@@ -4,17 +4,43 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\NewsAndEventStoreRequest;
+use App\Http\Requests\Admin\StoreEventItemRequest;
+use App\Http\Requests\Admin\UpdateNewsAndEventRequest;
+use App\Models\EventItem;
 use App\Models\NewsAndEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NewsAndEventController extends Controller
 {
+    /**
+     * Store event items.
+     */
+    public function addEventItem(StoreEventItemRequest $request)
+    {
+        $inputs = $request->validated();
+        $inputs['admin_id'] = auth()->id();
+        NewsAndEvent::create($inputs);
+
+        return back()->with('success', 'Event item added successfully.');
+    }
+
+    /**
+     * Delete event items.
+     */
+    public function deleteEventItem(EventItem $eventItem)
+    {
+        $eventItem->delete();
+        return back()->with('success', 'Event item deleted successfully.');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('app.admin.news-and-events.index');
+        $newsAndEvents = NewsAndEvent::latest()->get();
+        return view('app.admin.news-and-events.index', compact('newsAndEvents'));
     }
 
     /**
@@ -23,7 +49,6 @@ class NewsAndEventController extends Controller
     public function create()
     {
         return view('app.admin.news-and-events.create');
-
     }
 
     /**
@@ -33,6 +58,14 @@ class NewsAndEventController extends Controller
     {
         $inputs = $request->validated();
 
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('temp-gallery-images', $image, $imageName);
+            $inputs['image'] = $imageName;
+        }
+        NewsAndEvent::create($inputs);
+        return back()->with('success', 'News and Event created successfully.');
     }
 
     /**
@@ -40,7 +73,7 @@ class NewsAndEventController extends Controller
      */
     public function show(NewsAndEvent $newsAndEvent)
     {
-        //
+        return view('app.admin.news-and-events.show', compact('newsAndEvent'));
     }
 
     /**
@@ -48,15 +81,24 @@ class NewsAndEventController extends Controller
      */
     public function edit(NewsAndEvent $newsAndEvent)
     {
-        //
+        return view('app.admin.news-and-events.edit', compact('newsAndEvent'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, NewsAndEvent $newsAndEvent)
+    public function update(UpdateNewsAndEventRequest $request, NewsAndEvent $newsAndEvent)
     {
-        //
+        $inputs = $request->validated();
+
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('temp-gallery-images', $image, $imageName);
+            $inputs['image'] = $imageName;
+        }
+        $newsAndEvent->update($inputs);
+        return back()->with('success', 'News and Event updated successfully.');
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewsAndEventStoreRequest extends FormRequest
+class UpdateNewsAndEventRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +33,7 @@ class NewsAndEventStoreRequest extends FormRequest
             'organizer' => ['required', 'max:255'],
             'contact' => ['required', 'digits_between:10,15'],
             'phone' => ['required', 'max:255'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:1024'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:1024'],
         ];
     }
 }
