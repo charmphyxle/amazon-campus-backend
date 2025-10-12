@@ -18,4 +18,14 @@ class EventItem extends Model
         return $this->belongsTo(NewsAndEvent::class);
     }
 
+    /**
+     * Get admin.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function admin()
+    {
+        return $this->belongsTo(User::class,'admin_id','id');
+    }
+
 }
