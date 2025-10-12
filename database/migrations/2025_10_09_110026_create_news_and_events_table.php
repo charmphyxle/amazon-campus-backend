@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('news_and_events', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('badge_title');
+            $table->tinyInteger('short_description');
+            $table->text('description');
+            $table->date('start_date');
+            $table->time('time');
+            $table->string('location');
+            $table->string('organizer');
+            $table->string('contact');
+            $table->string('phone');
+            $table->string('image');
             $table->timestamps();
         });
     }
