@@ -10,7 +10,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route('testimonials.create') }}" class="btn btn-primary btn-sm rounded">Create new</a>
+                <a href="{{ route("testimonials.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -37,38 +37,8 @@
                     </div>
                 </div>
             </header>
-
             <div class="card-body">
-
-                {{-- <article class="itemlist">
-                    <div class="row align-items-center">
-                        <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
-                            <a class="itemside" href="#">
-                                <div class="left">
-                                    <img src="assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item" />
-                                </div>
-                                <div class="info">
-                                    <h6 class="mb-0">Seeds of Change Organic Quinoa</h6>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 col-sm-2 col-4 col-price"><span>$34.50</span></div>
-                        <div class="col-lg-2 col-sm-2 col-4 col-status">
-                            <span class="badge rounded-pill alert-success">Active</span>
-                        </div>
-                        <div class="col-lg-1 col-sm-2 col-4 col-date">
-                            <span>02.11.2021</span>
-                        </div>
-                        <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
-                            <a href="#" class="btn btn-sm font-sm rounded btn-brand"> <i
-                                    class="material-icons md-edit"></i> Edit </a>
-                            <a href="#" class="btn btn-sm font-sm btn-light rounded"> <i
-                                    class="material-icons md-delete_forever"></i> Delete </a>
-                        </div>
-                    </div>
-                </article> --}}
-
-                <table class="table">
+                <table class="table table-responsive table-hover">
                     <thead>
                         <th>#</th>
                         <th>Name</th>
@@ -81,16 +51,29 @@
                         <th>Action</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @forelse ($testimonials as $testimonial)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $testimonial->name }}</td>
+                                <td>{{ $testimonial->content }}</td>
+                                <td>{{ $testimonial->designation }}</td>
+                                <td>{{ $testimonial->career_before }}</td>
+                                <td>{{ $testimonial->career_after }}</td>
+                                <td>{{ $testimonial->class_year }}</td>
+                                <td>{{ $testimonial->batch }}</td>
+                                <td>
+                                    <a href="{{ route("testimonials.edit", $testimonial) }}"
+                                        class="btn btn-sm font-sm rounded btn-info">Edit</a>
+                                    <form action="{{ route("testimonials.destroy", $testimonial) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button type="submit" class="btn btn-sm font-sm btn-brand rounded">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                        @endforelse
                     </tbody>
                 </table>
             </div>

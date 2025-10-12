@@ -14,7 +14,8 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        return view('app.admin.testimonials.index');
+        $testimonials = Testimonial::orderBy('id', 'desc')->paginate(10);
+        return view('app.admin.testimonials.index', compact('testimonials'));
     }
 
     /**
