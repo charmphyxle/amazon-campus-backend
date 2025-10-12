@@ -4,7 +4,7 @@
 @section("content")
     <section class="content-main">
         <div class="row">
-            <div class="col-9">
+            <div class="col-6">
                 <div class="content-header">
                     <h2 class="content-title">Accreditation form</h2>
                     <div>
@@ -12,6 +12,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-lg-6">
                 <div class="card mb-4">
                     <div class="card-header">
@@ -32,7 +34,7 @@
                                         </ul>
                                     </div>
                                 @endif
-                                <label for="title" class="form-label">Gallery title</label>
+                                <label for="title" class="form-label">Title</label>
                                 <input type="text" placeholder="Type here" class="form-control" name="title"
                                     value="{{ old("title") }}" required />
                             </div>

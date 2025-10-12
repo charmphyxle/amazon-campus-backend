@@ -1,15 +1,15 @@
 @extends("components.layouts.admin.base")
-@section("title", "Gallery")
+@section("title", "Accreditations")
 
 @section("content")
     <section class="content-main">
         <div class="content-header">
             <div>
-                <h2 class="content-title card-title">Gallery grid</h2>
+                <h2 class="content-title card-title">Accreditations grid</h2>
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("gallery.create") }}" class="btn btn-primary btn-sm rounded">Create gallery</a>
+                <a href="{{ route("accreditations.create") }}" class="btn btn-primary btn-sm rounded">Create</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -22,59 +22,56 @@
             </header>
 
             <div class="card-body">
-                <div class="row gx-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5">
-
-                    @forelse ($galleries as $gallery)
-                        <div class="col">
-                            <div class="card card-product-grid">
-                                <a href="#" class="img-wrap"> <img
-                                        src="{{ Storage::url("gallery-images/" . $gallery->images[0]->image) }}"
-                                        alt="gallery" />
-                                </a>
-                                <div class="info-wrap">
-
-                                    <a href="#" class="title text-truncate">{{ $gallery->title }}</a>
-
-                                    <div class="d-flex gap-2 mt-2 justify-content-between align-items-center">
-                                        <a href="{{ route("gallery.edit", $gallery) }}"
-                                            class="btn rounded font-sm hover-up btn-info mt-3"> <i
-                                                class="material-icons md-edit"></i>
-                                            Edit
-                                        </a>
-                                        <form action="{{ route("gallery.destroy", $gallery) }}" method="post">
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Badge title</th>
+                        <th>Year</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        @forelse ($accreditations as $accreditation)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>
+                                    <img src="{{ Storage::url("accreditations/" . $accreditation->image) }}"
+                                        alt="accreditation-image.png" width="100">
+                                </td>
+                                <td>{{ $accreditation->title }}</td>
+                                <td>{{ $accreditation->badge_title }}</td>
+                                <td>{{ $accreditation->year }}</td>
+                                <td>{{ $accreditation->description }}</td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route("accreditations.edit", $accreditation) }}"
+                                            class="btn btn-sm font-sm rounded btn-info">Edit</a>
+                                        <form action="{{ route("accreditations.destroy", $accreditation) }}" method="POST"
+                                            class="d-inline">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-md rounded font-sm hover-up mt-3">
-                                                Delete
-                                            </button>
+                                            <button type="submit"
+                                                class="btn btn-sm font-sm btn-brand rounded">Delete</button>
                                         </form>
                                     </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                    @endforelse
-                </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7" align="center">No accreditations found.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <div class="pagination-area mt-30 mb-50">
             <tr>
-                {{ $galleries->links() }}
+                {{ $accreditations->links() }}
             </tr>
-            {{-- <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-start">
-                    <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                    <li class="page-item"><a class="page-link" href="#">02</a></li>
-                    <li class="page-item"><a class="page-link" href="#">03</a></li>
-                    <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#">16</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a>
-                    </li>
-                </ul>
-            </nav> --}}
         </div>
     </section>
 @endsection

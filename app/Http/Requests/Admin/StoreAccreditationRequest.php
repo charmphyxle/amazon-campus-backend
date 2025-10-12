@@ -11,7 +11,7 @@ class StoreAccreditationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StoreAccreditationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'max:255'],
+            'badge_title' => ['required', 'max:255'],
+            'image' => ['nullable', 'image', 'max:2048', 'mimes:jpeg,png,jpg,webp'],
+            'year' => ['required', 'numeric', 'digits:4'],
+            'description' => ['required', 'max:255'],
         ];
     }
 }

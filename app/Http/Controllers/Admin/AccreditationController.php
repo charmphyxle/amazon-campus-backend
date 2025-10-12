@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Accreditation;
 use App\Http\Requests\Admin\StoreAccreditationRequest;
 use App\Http\Requests\Admin\UpdateAccreditationRequest;
+use Illuminate\Support\Facades\Storage;
 
 class AccreditationController extends Controller
 {
@@ -14,7 +15,7 @@ class AccreditationController extends Controller
      */
     public function index()
     {
-        $accreditations = Accreditation::orderBy('orderBy')->pagination(10);
+        $accreditations = Accreditation::orderBy('id', 'desc')->paginate(10);
         return view('app.admin.accreditations.index', compact('accreditations'));
     }
 
@@ -32,10 +33,17 @@ class AccreditationController extends Controller
     public function store(StoreAccreditationRequest $request)
     {
         $inputs = $request->validated();
-        Accreditation::create($inputs);
+        $accreditation = Accreditation::create($inputs);
+        $image = $request->file('image');
+        if ($image) {
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('accreditations', $image, $imageName);
+            $accreditation->update([
+                'image' => $imageName,
+            ]);
+        }
         return back()->with('success', 'Accreditation created successfully.');
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -52,6 +60,15 @@ class AccreditationController extends Controller
     {
         $inputs = $request->validated();
         $accreditation->update($inputs);
+        $image = $request->file('image');
+
+        if ($image) {
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('accreditations', $image, $imageName);
+            $accreditation->update([
+                'image' => $imageName,
+            ]);
+        }
         return back()->with('success', 'Accreditation updated successfully.');
     }
 
