@@ -61,7 +61,7 @@ class NewsAndEventController extends Controller
         if ($request->has('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            Storage::disk('public')->putFileAs('temp-gallery-images', $image, $imageName);
+            Storage::disk('public')->putFileAs('news-and-events', $image, $imageName);
             $inputs['image'] = $imageName;
         }
         NewsAndEvent::create($inputs);
@@ -94,7 +94,7 @@ class NewsAndEventController extends Controller
         if ($request->has('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            Storage::disk('public')->putFileAs('temp-gallery-images', $image, $imageName);
+            Storage::disk('public')->putFileAs('news-and-events', $image, $imageName);
             $inputs['image'] = $imageName;
         }
         $newsAndEvent->update($inputs);
