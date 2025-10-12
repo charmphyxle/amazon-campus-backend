@@ -10,7 +10,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="#" class="btn btn-primary btn-sm rounded">Create new</a>
+                <a href="{{ route('testimonials.create') }}" class="btn btn-primary btn-sm rounded">Create new</a>
             </div>
         </div>
         <div class="card mb-4">

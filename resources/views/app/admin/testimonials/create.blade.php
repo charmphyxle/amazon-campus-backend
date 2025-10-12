@@ -4,7 +4,7 @@
 @section("content")
     <section class="content-main">
         <div class="row">
-            <div class="col-9">
+            <div class="col-8">
                 <div class="content-header">
                     <h2 class="content-title">Testimonial form</h2>
                     <div>
@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="card mb-4">
                     <div class="card-header">
                         <h4>Basic</h4>
@@ -21,37 +21,58 @@
                         <form id="galleryForm" action="{{ route("testimonials.store") }}" method="POST">
                             @csrf
                             @method("POST")
-                            <div class="mb-4">
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                <label for="title" class="form-label">Gallery title</label>
-                                <input type="text" placeholder="Type here" class="form-control" name="title" value="{{ old('title') }}"
-                                    required />
+                            <div class="row">
+
+                                <div class="col-md-6 col-12 mb-4">
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" placeholder="Type here" class="form-control" name="name"
+                                        value="{{ old("name") }}" required />
+                                </div>
+                                <div class="col-md-6 col-12 mb-4">
+                                    <label for="designation" class="form-label">Designation</label>
+                                    <input type="text" placeholder="Type here" class="form-control" name="designation"
+                                        value="{{ old("designation") }}" required />
+                                </div>
+                                <div class="col-md-6 col-12 mb-4">
+                                    <label for="career_before" class="form-label">Career before</label>
+                                    <input type="text" placeholder="Type here" class="form-control" name="career_before"
+                                        value="{{ old("career_before") }}" required />
+                                </div>
+                                <div class="col-md-6 col-12 mb-4">
+                                    <label for="career_after" class="form-label">Career after</label>
+                                    <input type="text" placeholder="Type here" class="form-control" name="career_after"
+                                        value="{{ old("career_after") }}" required />
+                                </div>
+                                <div class="col-md-6 col-12 mb-4">
+                                    <label for="class_year" class="form-label">Class year</label>
+                                    <input type="text" placeholder="Type here" class="form-control" name="class_year"
+                                        value="{{ old("class_year") }}" required />
+                                </div>
+                                <div class="col-md-6 col-12 mb-4">
+                                    <label for="batch" class="form-label">Batch</label>
+                                    <input type="text" placeholder="Type here" class="form-control" name="batch"
+                                        value="{{ old("batch") }}" required />
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Content</label>
+                                    <textarea placeholder="Type here" class="form-control" rows="4" name="content" required>{{ old("content") }}</textarea>
+                                </div>
                             </div>
-                            <div class="mb-4">
-                                <label class="form-label">Category</label>
-                                <select class="form-select" name="category" required>
-                                    <option selected disabled>Select category</option>
-                                    <option value="Adidas"> Adidas </option>
-                                    <option value="Nike"> Nike </option>
-                                    <option value="Puma"> Puma </option>
-                                </select>
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Description</label>
-                                <textarea placeholder="Type here" class="form-control" rows="4" name="description" required >{{ old('description') }}</textarea>
-                            </div>
+
+
                         </form>
                     </div>
                 </div>
-                <div class="card mb-4">
+                {{-- <div class="card mb-4">
                     <div class="card-header">
                         <h4>Gallery items</h4>
                     </div>
@@ -89,9 +110,9 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> --}}
             </div>
-            <div class="col-lg-3">
+            {{-- <div class="col-lg-3">
                 <div class="card mb-4">
                     <div class="card-header">
                         <h4>Image form</h4>
@@ -108,7 +129,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
