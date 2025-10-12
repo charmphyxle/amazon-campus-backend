@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AccreditationController as AdminAccreditationController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
@@ -20,6 +21,7 @@ Route::delete('/gallery/{temp_image}/delete', [AdminGalleryController::class, 'd
 Route::delete('/gallery/{image}/delete-image', [AdminGalleryController::class, 'deleteImage'])->name('gallery.deleteImage');
 Route::resource('gallery', AdminGalleryController::class)->except(['show']);
 Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
+Route::resource('accreditations', AdminAccreditationController::class)->except(['show']);
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {
