@@ -12,7 +12,7 @@
             <div class="col-lg-6">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h4></h4>
+                        <h4>{{ $applicationForm->full_name }}</h4>
                     </div>
                     <div class="card-body">
                         <table class="table table-responsive table-striped">
