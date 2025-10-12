@@ -32,7 +32,7 @@ class TestimonialController extends Controller
     {
         $inputs = $request->validated();
         Testimonial::create($inputs);
-        return to_route('testimonials.index')->with('success', 'Testimonial created successfully.');
+        return back()->with('success', 'Testimonial created successfully.');
     }
 
     /**
@@ -50,7 +50,7 @@ class TestimonialController extends Controller
     {
         $inputs = $request->validated();
         $testimonial->update($inputs);
-        return to_route('testimonials.edit')->with('success', 'Testimonial created successfully.');
+        return back()->with('success', 'Testimonial created successfully.');
     }
 
     /**
@@ -59,6 +59,6 @@ class TestimonialController extends Controller
     public function destroy(Testimonial $testimonial)
     {
         $testimonial->delete();
-        return to_route('testimonials.index')->with('success', 'Testimonial deleted successfully.');
+        return back()->with('success', 'Testimonial deleted successfully.');
     }
 }
