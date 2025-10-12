@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ApplicationForm extends Model
 {
     /** @use HasFactory<\Database\Factories\ApplicationFormFactory> */
-    use HasFactory;
+    use HasFactory, HasFactory;
 
     protected $fillable = [
         'first_name',
@@ -20,6 +20,6 @@ class ApplicationForm extends Model
         'gender',
         'address',
         'emergency_contact_name',
-        'emergency_contact_phone',        
+        'emergency_contact_phone',
     ];
 }

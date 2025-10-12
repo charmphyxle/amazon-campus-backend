@@ -13,6 +13,6 @@ class ApplicationFormSeeder extends Seeder
      */
     public function run(): void
     {
-        ApplicationForm::factory()->create(20);
+        ApplicationForm::factory(20)->create();
     }
 }
