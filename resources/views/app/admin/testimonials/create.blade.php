@@ -67,8 +67,6 @@
                                     <textarea placeholder="Type here" class="form-control" rows="4" name="content" required>{{ old("content") }}</textarea>
                                 </div>
                             </div>
-
-
                         </form>
                     </div>
                 </div>                
