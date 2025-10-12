@@ -1,5 +1,5 @@
 @extends("components.layouts.admin.base")
-@section("title", "Gallery")
+@section("title", "Testomonials")
 
 @section("content")
     <section class="content-main">
