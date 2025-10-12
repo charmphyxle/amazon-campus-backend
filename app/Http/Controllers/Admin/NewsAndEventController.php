@@ -8,7 +8,6 @@ use App\Http\Requests\Admin\StoreEventItemRequest;
 use App\Http\Requests\Admin\UpdateNewsAndEventRequest;
 use App\Models\EventItem;
 use App\Models\NewsAndEvent;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class NewsAndEventController extends Controller
