@@ -41,6 +41,12 @@
                     <span class="text">Accreditations</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a class="menu-link" href="{{ route("application-forms.index") }}">
+                    <i class="icon material-icons md-comment"></i>
+                    <span class="text">Application Forms</span>
+                </a>
+            </li>
 
             {{-- 
             <li class="menu-item has-submenu">
