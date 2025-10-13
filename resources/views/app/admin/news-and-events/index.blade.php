@@ -5,7 +5,7 @@
     <section class="content-main">
         <div class="content-header">
             <div>
-                <h2 class="content-title card-title">Products grid</h2>
+                <h2 class="content-title card-title">News And Event List</h2>
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
@@ -22,39 +22,46 @@
             </header>
 
             <div class="card-body">
-                <div class="row gx-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5">
-
-                    <div class="col">
-                        <div class="card card-product-grid">
-                            <a href="#" class="img-wrap"> <img src="assets/imgs/items/1.jpg" alt="Product" /> </a>
-                            <div class="info-wrap">
-                                <a href="#" class="title text-truncate">Haagen-Dazs Caramel Cone Ice</a>
-                                <div class="price mb-2">$179.00</div>
-                                <a href="#" class="btn btn-sm font-sm rounded btn-brand"> <i
-                                        class="material-icons md-edit"></i> Edit </a>
-                                <a href="#" class="btn btn-sm font-sm btn-light rounded"> <i
-                                        class="material-icons md-delete_forever"></i> Delete </a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Badge title</th>
+                        <th>Start date</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        @forelse ($newsAndEvents as $index => $newsAndEvent)
+                            <tr>
+                                <td>{{ $newsAndEvents->firstItem() + $index }}</td>
+                                <td>{{ $newsAndEvent->title }}</td>
+                                <td>{{ $newsAndEvent->badge_title }}</td>
+                                <td>{{ $newsAndEvent->start_date }}</td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route("news-and-events.edit", $newsAndEvent) }}"
+                                            class="btn btn-sm font-sm rounded btn-info">Edit</a>
+                                        <form action="{{ route("news-and-events.destroy", $newsAndEvent) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button type="submit"
+                                                class="btn btn-sm font-sm btn-brand rounded">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9" align="center">No testimonial found.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
-
         <div class="pagination-area mt-30 mb-50">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-start">
-                    <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                    <li class="page-item"><a class="page-link" href="#">02</a></li>
-                    <li class="page-item"><a class="page-link" href="#">03</a></li>
-                    <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#">16</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a>
-                    </li>
-                </ul>
-            </nav>
+            {{ $newsAndEvents->links() }}
         </div>
     </section>
 @endsection

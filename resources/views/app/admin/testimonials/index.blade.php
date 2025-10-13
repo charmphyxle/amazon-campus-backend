@@ -51,9 +51,9 @@
                         <th>Action</th>
                     </thead>
                     <tbody>
-                        @forelse ($testimonials as $testimonial)
+                        @forelse ($testimonials as $index => $testimonial)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $testimonials->firstItem() + $index }}</td>
                                 <td>{{ $testimonial->name }}</td>
                                 <td>{{ $testimonial->content }}</td>
                                 <td>{{ $testimonial->designation }}</td>
