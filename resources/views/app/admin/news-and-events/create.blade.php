@@ -112,14 +112,14 @@
                                     <div class="mb-4">
                                         <label for="short_description" class="form-label">Short description</label>
                                         <textarea placeholder="Type here" class="form-control" name="short_description" id="" cols="30"
-                                            rows="10" required>value="{{ old("short_description") }}"</textarea>
+                                            rows="10" required>{{ old("short_description") }}"</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-4">
                                         <label for="description" class="form-label">Description</label>
                                         <textarea placeholder="Type here" class="form-control" name="description" id="" cols="30"
-                                            rows="10" required>value="{{ old("description") }}"</textarea>
+                                            rows="10" required>{{ old("description") }}"</textarea>
                                     </div>
                                 </div>
                             </div>
