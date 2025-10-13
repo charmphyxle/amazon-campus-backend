@@ -31,9 +31,9 @@ class NewsAndEventStoreRequest extends FormRequest
             'end_time' => ['required', 'date_format:H:i', 'max:255'],
             'location' => ['required', 'max:255'],
             'organizer' => ['required', 'max:255'],
-            'contact' => ['required', 'digits_between:10,15'],
-            'phone' => ['required', 'max:255'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:1024'],
+            'contact' => ['required','email', 'max:255'],
+            'phone' => ['required', 'digits_between:10,15' ],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
         ];
     }
 }
