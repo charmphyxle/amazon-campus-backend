@@ -18,8 +18,8 @@ return new class extends Migration
             $table->tinyInteger('short_description');
             $table->text('description');
             $table->date('start_date');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->string('location');
             $table->string('organizer');
             $table->string('contact');
