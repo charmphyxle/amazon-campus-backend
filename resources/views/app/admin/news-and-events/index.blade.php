@@ -41,6 +41,8 @@
                                     <div class="d-flex gap-2">
                                         <a href="{{ route("news-and-events.edit", $newsAndEvent) }}"
                                             class="btn btn-sm font-sm rounded btn-info">Edit</a>
+                                        <a href="{{ route("news-and-events.show", $newsAndEvent) }}"
+                                            class="btn btn-sm font-sm rounded btn-warning">Show</a>
                                         <form action="{{ route("news-and-events.destroy", $newsAndEvent) }}" method="POST"
                                             class="d-inline">
                                             @csrf
