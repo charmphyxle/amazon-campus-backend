@@ -16,8 +16,8 @@ Route::middleware(['guest'])->group(function () {
 
 //admin routes
 Route::get('/', [BaseController::class, 'index'])->name('admin.index');
-Route::delete('news-and-events/{news_and_events}/{event-item}', [AdminNewsAndEventController::class, 'deleteEventItem'])->name('news-and-events.deleteEventItem');
-Route::post('news-and-events/{news_and_events}/add-event-item', [AdminNewsAndEventController::class, 'addEventItem'])->name('news-and-events.addEventItem');
+Route::delete('news-and-events/delete-item/{event_item}', [AdminNewsAndEventController::class, 'deleteEventItem'])->name('news-and-events.deleteEventItem');
+Route::post('news-and-events/{news_and_event}/add-event-item', [AdminNewsAndEventController::class, 'addEventItem'])->name('news-and-events.addEventItem');
 Route::resource('news-and-events', AdminNewsAndEventController::class);
 Route::post('/gallery/add-images', [AdminGalleryController::class, 'addImages'])->name('gallery.addImages');
 Route::delete('/gallery/{temp_image}/delete', [AdminGalleryController::class, 'deleteTempImage'])->name('gallery.deleteTempImage');

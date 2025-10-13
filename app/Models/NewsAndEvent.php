@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class NewsAndEvent extends Model
 {
@@ -23,4 +24,9 @@ class NewsAndEvent extends Model
         'phone',
         'image'
     ];
+
+    public function eventItems():HasMany
+    {
+        return $this->hasMany(EventItem::class);
+    }
 }

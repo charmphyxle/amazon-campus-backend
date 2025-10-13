@@ -8,7 +8,7 @@
                 <div class="content-header">
                     <h2 class="content-title">Add News And Event</h2>
                     <div>
-                        <button id="teventSubmitBtn" class="btn btn-md rounded font-sm hover-up">Publish</button>
+                        <button id="eventSubmitBtn" class="btn btn-md rounded font-sm hover-up">Publish</button>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
     </section>
     @pushOnce("scripts")
         <script>
-            $('#teventSubmitBtn').on('click', function() {
+            $('#eventSubmitBtn').on('click', function() {
                 $('#eventForm').submit();
             });
         </script>

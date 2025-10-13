@@ -9,8 +9,9 @@ class EventItem extends Model
 {
     protected $fillable = [
         'news_and_event_id',
+        'admin_id',
         'time',
-        'content',        
+        'content',
     ];
 
     public function newsAndEvent(): BelongsTo
@@ -25,7 +26,6 @@ class EventItem extends Model
      */
     public function admin()
     {
-        return $this->belongsTo(User::class,'admin_id','id');
+        return $this->belongsTo(User::class, 'admin_id', 'id');
     }
-
 }

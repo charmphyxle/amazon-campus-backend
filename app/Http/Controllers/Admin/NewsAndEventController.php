@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\StoreEventItemRequest;
 use App\Http\Requests\Admin\UpdateNewsAndEventRequest;
 use App\Models\EventItem;
 use App\Models\NewsAndEvent;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Support\Facades\Storage;
 
 class NewsAndEventController extends Controller
@@ -15,12 +16,19 @@ class NewsAndEventController extends Controller
     /**
      * Store event items.
      */
-    public function addEventItem(StoreEventItemRequest $request)
+    public function addEventItem(StoreEventItemRequest $request, NewsAndEvent $newsAndEvent)
     {
-        $inputs = $request->validated();
-        $inputs['admin_id'] = auth()->id();
-        NewsAndEvent::create($inputs);
 
+        $inputs = $request->validated();
+        $inputs['admin_id'] = 1;
+        $inputs['news_and_event_id'] =  $newsAndEvent->id;
+
+        EventItem::create([
+            'news_and_event_id' => $inputs['news_and_event_id'],
+            'admin_id' => $inputs['admin_id'],
+            'time' => $inputs['time'],
+            'content' => $inputs['content'],
+        ]);
         return back()->with('success', 'Event item added successfully.');
     }
 
@@ -28,7 +36,7 @@ class NewsAndEventController extends Controller
      * Delete event items.
      */
     public function deleteEventItem(EventItem $eventItem)
-    {
+    {        
         $eventItem->delete();
         return back()->with('success', 'Event item deleted successfully.');
     }
