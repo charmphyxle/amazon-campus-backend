@@ -2,17 +2,18 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\NewsAndEvenFactory;
+use App\Models\NewsAndEvent;
+use Database\Factories\NewsAndEventFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class NewsAndEvenFactorySeeder extends Seeder
+class NewsAndEventSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        NewsAndEvenFactory::factory(10)->create();
+        NewsAndEvent::factory(10)->create();
     }
 }

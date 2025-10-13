@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\NewsAndEvent>
  */
-class NewsAndEvenFactory extends Factory
+class NewsAndEventFactory extends Factory
 {
     /**
      * Define the model's default state.

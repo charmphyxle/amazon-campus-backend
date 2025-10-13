@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ApplicationFormSeeder::class,
-            NewsAndEvenFactorySeeder::class,
+            NewsAndEventSeeder::class,
         ]);
 
         // User::factory()->create([
