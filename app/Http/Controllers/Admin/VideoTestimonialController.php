@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\VideoTestimonial;
 use App\Http\Requests\Admin\StoreVideoTestimonialRequest;
 use App\Http\Requests\Admin\UpdateVideoTestimonialRequest;
+use Illuminate\Support\Facades\Storage;
 
 class VideoTestimonialController extends Controller
 {
@@ -32,7 +33,15 @@ class VideoTestimonialController extends Controller
     public function store(StoreVideoTestimonialRequest $request)
     {
         $inputs = $request->validated();
+
+        $video = $request->file('video');
+        if ($video) {
+            $videoName = time() . '_' . uniqid() . '.' . $video->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('video-testimonials', $video, $videoName);
+            $inputs['video'] = $videoName;
+        }
         VideoTestimonial::create($inputs);
+
         return back()->with(['success', 'Video testimonial added successfully.']);
     }
 
@@ -50,7 +59,14 @@ class VideoTestimonialController extends Controller
     public function update(UpdateVideoTestimonialRequest $request, VideoTestimonial $videoTestimonial)
     {
         $inputs = $request->validated();
+        $video = $request->file('video');
+        if ($video) {
+            $videoName = time() . '_' . uniqid() . '.' . $video->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('video-testimonials', $video, $videoName);
+            $inputs['video'] = $videoName;
+        }
         $videoTestimonial->update($inputs);
+
         return back()->with(['success', 'Video testimonial updated successfully.']);
     }
 

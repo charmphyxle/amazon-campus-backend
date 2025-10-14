@@ -51,7 +51,7 @@
                             <div class="mb-4">
                                 <div class="input-upload">
                                     <img src="assets/imgs/theme/upload.svg" alt="" />
-                                    <input class="form-control" type="file" name="image" />
+                                    <input class="form-control" type="file" name="image" required/>
                                 </div>
                             </div>
 

@@ -104,8 +104,8 @@
                                 <div class="col-md-6">
                                     <div class="mb-4">
                                         <div class="input-upload">
-                                            <img src="assets/imgs/theme/upload.svg" alt="" />
-                                            <input class="form-control" type="file" name="image" required />
+                                            <img src="{{ asset("imgs/theme/upload.svg") }}" alt="" />
+                                            <input class="form-control" type="file" name="image" />
                                         </div>
                                         <div class="">
                                             <img src="{{ Storage::url("news-and-events/" . $newsAndEvent->image) }}"

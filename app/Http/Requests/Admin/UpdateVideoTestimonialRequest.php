@@ -22,7 +22,7 @@ class UpdateVideoTestimonialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'video' => ['nullable', 'file', 'mimes:mp4,avi,mov,mpeg', 'max:51200'],
+            'video' => ['nullable', 'file', 'mimes:mp4,avi,mov,mpeg,webm', 'max:51200'],
             'title' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'course' => ['required', 'string', 'max:255'],

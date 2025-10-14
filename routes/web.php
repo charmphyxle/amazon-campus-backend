@@ -8,7 +8,9 @@ use App\Http\Controllers\Admin\NewsAndEventController as AdminNewsAndEventContro
 use App\Http\Controllers\Admin\NewsLetterController as AdminNewsLetterController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\Admin\VideoGalleryController as AdminVideoGalleryController;
+use App\Http\Controllers\Admin\VideoTestimonialController as AdminVideoTestimonialController;
 use App\Http\Controllers\ApplicationFormController as AdminApplicationFormController;
+use App\Models\VideoTestimonial;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
@@ -30,6 +32,7 @@ Route::resource('accreditations', AdminAccreditationController::class)->except([
 Route::resource('application-forms', AdminApplicationFormController::class)->only(['index', 'show', 'destroy']);
 Route::resource('news-letters', AdminNewsLetterController::class)->only(['index']);
 Route::resource('video-galleries', AdminVideoGalleryController::class)->except(['show']);
+Route::resource('video-testimonials', AdminVideoTestimonialController::class)->except(['show']);
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {});

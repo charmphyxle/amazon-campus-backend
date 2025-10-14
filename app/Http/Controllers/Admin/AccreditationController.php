@@ -34,6 +34,7 @@ class AccreditationController extends Controller
     {
         $inputs = $request->validated();
         $accreditation = Accreditation::create($inputs);
+        
         $image = $request->file('image');
         if ($image) {
             $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
