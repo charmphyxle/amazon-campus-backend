@@ -16,11 +16,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
            // ApplicationFormSeeder::class,
             //NewsAndEventSeeder::class,
+            NewsLetterSeeder::class,
         ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }

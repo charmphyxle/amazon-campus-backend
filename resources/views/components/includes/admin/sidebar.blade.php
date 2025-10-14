@@ -47,6 +47,12 @@
                     <span class="text">Application Forms</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a class="menu-link" href="{{ route("news-letters.index") }}">
+                    <i class="icon material-icons md-comment"></i>
+                    <span class="text">News Letters</span>
+                </a>
+            </li>
 
             {{-- 
             <li class="menu-item has-submenu">

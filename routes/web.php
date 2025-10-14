@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\NewsAndEventController as AdminNewsAndEventController;
+use App\Http\Controllers\Admin\NewsLetterController as AdminNewsLetterController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\ApplicationFormController as AdminApplicationFormController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::resource('gallery', AdminGalleryController::class)->except(['show']);
 Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
 Route::resource('accreditations', AdminAccreditationController::class)->except(['show']);
 Route::resource('application-forms', AdminApplicationFormController::class)->only(['index', 'show', 'destroy']);
+Route::resource('news-letters', AdminNewsLetterController::class)->only(['index']);
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {
