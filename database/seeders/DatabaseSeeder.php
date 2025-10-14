@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
            // ApplicationFormSeeder::class,
             //NewsAndEventSeeder::class,
             NewsLetterSeeder::class,
+            VideoGallerySeeder::class,
         ]);
 
         // User::factory()->create([

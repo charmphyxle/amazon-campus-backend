@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\NewsAndEventController as AdminNewsAndEventController;
 use App\Http\Controllers\Admin\NewsLetterController as AdminNewsLetterController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
+use App\Http\Controllers\Admin\VideoGalleryController as AdminVideoGalleryController;
 use App\Http\Controllers\ApplicationFormController as AdminApplicationFormController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +29,9 @@ Route::resource('testimonials', AdminTestimonialController::class)->except(['sho
 Route::resource('accreditations', AdminAccreditationController::class)->except(['show']);
 Route::resource('application-forms', AdminApplicationFormController::class)->only(['index', 'show', 'destroy']);
 Route::resource('news-letters', AdminNewsLetterController::class)->only(['index']);
+Route::resource('video-galleries', AdminVideoGalleryController::class)->except(['show']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::middleware(['can:admin'])->group(function () {
-    });
+    Route::middleware(['can:admin'])->group(function () {});
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });

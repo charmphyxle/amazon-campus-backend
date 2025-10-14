@@ -53,6 +53,12 @@
                     <span class="text">News Letters</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a class="menu-link" href="{{ route("video-galleries.index") }}">
+                    <i class="icon material-icons md-comment"></i>
+                    <span class="text">Video Galleries</span>
+                </a>
+            </li>
 
             {{-- 
             <li class="menu-item has-submenu">
