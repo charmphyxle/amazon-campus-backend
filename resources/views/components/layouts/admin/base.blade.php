@@ -15,6 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg" />
     <!-- Template CSS -->
     <script src="{{ asset("js/vendors/color-modes.js") }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/plyr.css') }}">
     <link href="{{ asset("css/main.css") }}" rel="stylesheet" type="text/css" />
 </head>
 
@@ -38,6 +39,7 @@
     <script src="{{ asset("js/vendors/perfect-scrollbar.js") }}"></script>
     <script src="{{ asset("js/vendors/jquery.fullscreen.min.js") }}"></script>
     <script src="{{ asset("js/vendors/chart.js") }}"></script>
+    <script src="{{ asset('js/plyr.min.js') }}"></script>
     <!-- Main Script -->
     <script src="{{ asset("js/main.js") }}" type="text/javascript"></script>
     <script src="{{ asset("js/custom-chart.js") }}" type="text/javascript"></script>

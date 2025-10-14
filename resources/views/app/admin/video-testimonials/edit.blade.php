@@ -31,8 +31,8 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        <form id="testimonialForm" action="{{ route("video-testimonials.update", $videoTestimonial) }}" method="POST"
-                            enctype="multipart/form-data">
+                        <form id="testimonialForm" action="{{ route("video-testimonials.update", $videoTestimonial) }}"
+                            method="POST" enctype="multipart/form-data">
                             @csrf
                             @method("PUT")
                             <div class="row">
@@ -64,7 +64,18 @@
                                             <img src="{{ asset("imgs/theme/upload.svg") }}" alt="" />
                                             <input class="form-control" type="file" name="video" />
                                         </div>
-                                        <video src="{{ Storage::url('video-testimonials/'.$videoTestimonial->video) }}" width="150"></video>
+                                        <video id="player" class="plyr__video-embed" playsinline controls>
+                                            <source
+                                                src="{{ Storage::url("video-testimonials/" . $videoTestimonial->video) }}"
+                                                type="video/mp4" />
+                                            Your browser doesn’t support HTML5 video.
+                                        </video>
+                                        @pushOnce("scripts")
+                                            <script>
+                                                const player = new Plyr('#player');
+                                            </script>
+                                        @endPushOnce
+
                                     </div>
                                 </div>
                             </div>

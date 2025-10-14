@@ -27,8 +27,8 @@
                         <th>#</th>
                         <th>Title</th>
                         <th>Video</th>
-                        <th>Badge title</th>
-                        <th>Start date</th>
+                        <th>Name</th>
+                        <th>Course</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -36,8 +36,20 @@
                             <tr>
                                 <td>{{ $videoTestimonials->firstItem() + $index }}</td>
                                 <td>{{ $videoTestimonial->title }}</td>
-                                <td>
-                                    <video src="{{ Storage::url('video-testimonials/' . $videoTestimonial->video) }}" height="150"></video>
+                               
+                                <td align="center">
+                                     <div class="w-50">
+
+                                         <video id="player" class="plyr__video-embed" playsinline controls >
+                                             <source src="{{ Storage::url('video-testimonials/' . $videoTestimonial->video) }}" type="video/mp4"  />
+                                                Your browser doesn’t support HTML5 video.
+                                            </video>
+                                            @pushOnce("scripts")
+                                            <script>
+                                                const player = new Plyr('#player');
+                                                </script>
+                                    @endPushOnce                                  
+                                </div>
                                 </td>
                                 <td>{{ $videoTestimonial->name }}</td>
                                 <td>{{ $videoTestimonial->course }}</td>
