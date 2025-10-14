@@ -50,7 +50,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" align="center">No testimonial found.</td>
+                                <td colspan="3" align="center">No testimonial found.</td>
                             </tr>
                         @endforelse
                     </tbody>

@@ -69,7 +69,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" align="center">No video testimonial found.</td>
+                                <td colspan="6" align="center">No video testimonial found.</td>
                             </tr>
                         @endforelse
                     </tbody>

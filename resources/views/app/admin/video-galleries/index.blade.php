@@ -53,7 +53,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" align="center">No video galleries found.</td>
+                                <td colspan="5" align="center">No video galleries found.</td>
                             </tr>
                         @endforelse
                     </tbody>
