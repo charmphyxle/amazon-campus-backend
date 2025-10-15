@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BaseController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\NewsAndEventController as AdminNewsAndEventController;
 use App\Http\Controllers\Admin\NewsLetterController as AdminNewsLetterController;
+use App\Http\Controllers\Admin\PosterController as AdminPosterController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\Admin\VideoGalleryController as AdminVideoGalleryController;
 use App\Http\Controllers\Admin\VideoTestimonialController as AdminVideoTestimonialController;
@@ -33,6 +34,7 @@ Route::resource('application-forms', AdminApplicationFormController::class)->onl
 Route::resource('news-letters', AdminNewsLetterController::class)->only(['index']);
 Route::resource('video-galleries', AdminVideoGalleryController::class)->except(['show']);
 Route::resource('video-testimonials', AdminVideoTestimonialController::class)->except(['show']);
+Route::resource('posters', AdminPosterController::class)->except(['show', 'edit', 'update']);
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {});
