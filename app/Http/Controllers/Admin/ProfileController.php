@@ -14,7 +14,7 @@ class ProfileController extends Controller
 
     public function updateInfo(Request $request)
     {
-        $inputs = $request->validate([
+        $request->validate([
             'email' => ['required', 'email', 'max:255'],
             'name' => ['required', 'max:255'],
         ]);
