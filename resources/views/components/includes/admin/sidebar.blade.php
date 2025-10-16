@@ -10,56 +10,56 @@
     </div>
     <nav>
         <ul class="menu-aside">
-            <li class="menu-item {{ request()->routeIs('index') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.index') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route('admin.index') }}">
                     <i class="icon material-icons md-home"></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
 
-            <li class="menu-item {{ request()->routeIs('news-and-events.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.news-and-events.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.news-and-events.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">News & Events</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('gallery.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.gallery.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Gallery</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('testimonials.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.testimonials.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Testimonials</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('accreditations.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.accreditations.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.accreditations.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Accreditations</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('application-forms.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.application-forms.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.application-forms.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Application Forms</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('news-letters.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.news-letters.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.news-letters.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">News Letters</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('video-galleries.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.video-galleries.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.video-galleries.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Video Galleries</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('video-testimonials.*') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('admin.video-testimonials.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.video-testimonials.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Video Testimonials</span>

@@ -62,14 +62,16 @@
                                 <td>{{ $testimonial->class_year }}</td>
                                 <td>{{ $testimonial->batch }}</td>
                                 <td>
-                                    <a href="{{ route("admin.testimonials.edit", $testimonial) }}"
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route("admin.testimonials.edit", $testimonial) }}"
                                         class="btn btn-sm font-sm rounded btn-info">Edit</a>
-                                    <form action="{{ route("admin.testimonials.destroy", $testimonial) }}" method="POST"
+                                        <form action="{{ route("admin.testimonials.destroy", $testimonial) }}" method="POST"
                                         class="d-inline">
                                         @csrf
                                         @method("DELETE")
                                         <button type="submit" class="btn btn-sm font-sm btn-brand rounded">Delete</button>
                                     </form>
+                                </div>
                                 </td>
                             </tr>
                         @empty
