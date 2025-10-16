@@ -25,25 +25,25 @@
             </li>
             <li class="menu-item {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.gallery.index") }}">
-                    <i class="icon material-icons md-comment"></i>
+                    <i class="icon material-icons md-filter"></i>
                     <span class="text">Gallery</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.testimonials.index") }}">
-                    <i class="icon material-icons md-comment"></i>
+                    <i class="icon material-icons md-article"></i>
                     <span class="text">Testimonials</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('admin.accreditations.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.accreditations.index") }}">
-                    <i class="icon material-icons md-comment"></i>
+                    <i class="icon material-icons md-stars"></i>
                     <span class="text">Accreditations</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('admin.application-forms.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.application-forms.index") }}">
-                    <i class="icon material-icons md-comment"></i>
+                    <i class="icon material-icons md-note"></i>
                     <span class="text">Application Forms</span>
                 </a>
             </li>
@@ -55,25 +55,25 @@
             </li>
             <li class="menu-item {{ request()->routeIs('admin.video-galleries.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.video-galleries.index") }}">
-                    <i class="icon material-icons md-comment"></i>
+                    <i class="icon material-icons md-camera"></i>
                     <span class="text">Video Galleries</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('admin.video-testimonials.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.video-testimonials.index") }}">
-                    <i class="icon material-icons md-comment"></i>
+                    <i class="icon material-icons md-article"></i>
                     <span class="text">Video Testimonials</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('admin.calendar-events.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.calendar-events.index") }}">
-                    <i class="icon material-icons md-comment"></i>
+                    <i class="icon material-icons md-event"></i>
                     <span class="text">Calendar Events</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('admin.posters.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.posters.index") }}">
-                    <i class="icon material-icons md-comment"></i>
+                    <i class="icon material-icons md-image"></i>
                     <span class="text">Posters</span>
                 </a>
             </li>
