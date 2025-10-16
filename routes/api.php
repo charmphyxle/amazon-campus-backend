@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AccreditationController as ApiAccreditationController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CalendarEventController as ApiCalendarEventController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\GalleryController as ApiGalleryController;
 use App\Http\Controllers\Api\NewsAndEventController as ApiNewsAndEventController;
@@ -21,6 +22,7 @@ Route::apiResource('accreditations', ApiAccreditationController::class)->only('i
 Route::apiResource('video-galleries', ApiVideoGalleryController::class)->only('index');
 Route::apiResource('video-testimonials', ApiVideoTestimonialController::class)->only('index');
 Route::apiResource('posters', ApiPosterController::class)->only('index');
+Route::apiResource('calendar-events', ApiCalendarEventController::class)->only('index');
 Route::post('/contact', [ContactController::class, 'sendMail']);
 
 Route::middleware('auth:sanctum')->group(function () {  
