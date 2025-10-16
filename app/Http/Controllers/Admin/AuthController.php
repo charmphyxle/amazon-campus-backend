@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -18,6 +19,11 @@ class AuthController extends Controller
             'email' => ['required', 'email', 'max:255'],
             'password' => ['required', 'min:8', 'max:32'],
         ]);
+
+        $user = User::where('email', $inputs['email'])->first();
+        if($user && $user->role != 'admin'){
+            return back()->withErrors('User is not an admin.');
+        }
 
         $loginSucceed = auth()->attempt($inputs);
         if (!$loginSucceed) {

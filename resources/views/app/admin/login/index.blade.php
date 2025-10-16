@@ -33,7 +33,9 @@
                             {{-- <img src="" alt=""> --}}
                             <h2 class="text-center">{{ env("APP_NAME") }}</h2>
                             <h4 class="card-title mb-4">Sign in</h4>
-                            <form>
+                            <form action="{{ route('login') }}" method="POST">
+                                @csrf
+                                @method('POST')
                                 <div class="mb-3">
                                     <label for="">Enter email</label>
                                     <input class="form-control" type="text" id="email"  name="email" />
@@ -66,7 +68,6 @@
     <script src="{{ asset("js/vendors/jquery-3.6.0.min.js") }}"></script>
     <script src="{{ asset("js/vendors/bootstrap.bundle.min.js") }}"></script>
     <script src="{{ asset("js/vendors/jquery.fullscreen.min.js") }}"></script>
-    <!-- Main Script -->
     <script src="{{ asset("js/main.js") }}" type="text/javascript"></script>
 </body>
 
