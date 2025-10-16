@@ -1,6 +1,6 @@
 <aside class="navbar-aside" id="offcanvas_aside">
     <div class="aside-top">
-        <a href="index.html" class="brand-wrap">
+        <a href="{{ route('admin.index') }}" class="brand-wrap">
             <img src="{{ asset('imgs/theme/logo.svg') }}" class="logo" alt="Nest Dashboard" />
         </a>
         <div>
@@ -11,7 +11,7 @@
     <nav>
         <ul class="menu-aside">
             <li class="menu-item {{ request()->routeIs('index') ? 'active' : '' }}">
-                <a class="menu-link" href="index.html">
+                <a class="menu-link" href="{{ route('admin.index') }}">
                     <i class="icon material-icons md-home"></i>
                     <span class="text">Dashboard</span>
                 </a>
