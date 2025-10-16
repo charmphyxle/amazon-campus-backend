@@ -26,15 +26,12 @@ class AuthController extends Controller
         }
 
         $loginSucceed = auth()->attempt($inputs);
-        if (!$loginSucceed) {
-            //toast('Credentials do not match. Please check user name and password again.', 'error');
-            return redirect()->back();
+        if (!$loginSucceed) {           
+            return redirect()->back()->withErrors('Credentials do not match. Please check user name and password again.');
         }
 
-        $request->session()->regenerate();
-
-        //toast('User logged in successfully!', 'success');
-        return redirect()->route('admin.index');
+        $request->session()->regenerate();       
+        return redirect()->route('admin.index')->with('success', 'User logged in successfully!');
     }
 
     public function logout(Request $request)

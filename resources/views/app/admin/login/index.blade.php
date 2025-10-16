@@ -34,7 +34,7 @@
                             <h2 class="text-center">{{ env("APP_NAME") }}</h2>
                             <h4 class="card-title mb-4">Sign in</h4>
                             @if ($errors->any())
-                                <div class="alert alert-danger m-3">
+                                <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
@@ -48,11 +48,17 @@
                                 <div class="mb-3">
                                     <label for="">Enter email</label>
                                     <input class="form-control" type="text" id="email" name="email" />
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <!-- form-group// -->
                                 <div class="mb-3">
                                     <label for="">Enter password</label>
                                     <input class="form-control" type="password" name="password" />
+                                    @error('password')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <!-- form-group// -->
                                 {{-- <div class="mb-3">
