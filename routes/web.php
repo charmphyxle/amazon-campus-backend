@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\NewsAndEventController as AdminNewsAndEventController;
 use App\Http\Controllers\Admin\NewsLetterController as AdminNewsLetterController;
 use App\Http\Controllers\Admin\PosterController as AdminPosterController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\Admin\VideoGalleryController as AdminVideoGalleryController;
 use App\Http\Controllers\Admin\VideoTestimonialController as AdminVideoTestimonialController;
@@ -38,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('video-testimonials', AdminVideoTestimonialController::class)->except(['show']);
         Route::resource('posters', AdminPosterController::class)->except(['show', 'edit', 'update']);
         Route::resource('calendar-events', AdminCalendarEventController::class)->except(['show']);
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::put('/profile/update-info', [ProfileController::class, 'updateInfo'])->name('profile.update-info');
+        Route::put('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
