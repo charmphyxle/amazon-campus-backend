@@ -11,7 +11,7 @@ class NewsAndEventController extends Controller
 {
     public function index(): JsonResponse
     {
-        $newsAndEvents = NewsAndEvent::latest()->paginate(10);
+        $newsAndEvents = NewsAndEvent::with('eventItems')->latest()->paginate(10);
         
         return response()->json([
             'status' => 'success',

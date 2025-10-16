@@ -27,6 +27,8 @@ class NewsAndEventResource extends JsonResource
             'contact' => $this->contact,
             'phone' => $this->phone,
             'image' => $this->image_url,
+            'eventItems' => EventItemResource::collection($this->whenLoaded('eventItems')),
+
         ];
         // return parent::toArray($request);
     }
