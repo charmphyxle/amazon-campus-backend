@@ -21,16 +21,7 @@
                         <form id="galleryForm" action="{{ route("admin.gallery.store") }}" method="POST">
                             @csrf
                             @method("POST")
-                            <div class="mb-4">
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                            <div class="mb-4">                               
                                 <label for="title" class="form-label">Gallery title</label>
                                 <input type="text" placeholder="Type here" class="form-control" name="title" value="{{ old('title') }}"
                                     required />

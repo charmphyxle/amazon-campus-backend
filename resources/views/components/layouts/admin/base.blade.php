@@ -12,21 +12,37 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('imgs/theme/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset("imgs/theme/favicon.svg") }}" />
     <!-- Template CSS -->
     <script src="{{ asset("js/vendors/color-modes.js") }}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/plyr.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/plyr.css") }}">
     <link href="{{ asset("css/main.css") }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    @include('sweetalert::alert')
+    @include("sweetalert::alert")
     <div class="screen-overlay"></div>
 
     @include("components.includes.admin.sidebar")
 
     <main class="main-wrap">
         @include("components.includes.admin.header")
+
+        @if (session("success"))
+            <div class="alert alert-success m-3">
+                {{ session("success") }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger m-3">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         @yield("content")
 
@@ -39,11 +55,11 @@
     <script src="{{ asset("js/vendors/perfect-scrollbar.js") }}"></script>
     <script src="{{ asset("js/vendors/jquery.fullscreen.min.js") }}"></script>
     <script src="{{ asset("js/vendors/chart.js") }}"></script>
-    <script src="{{ asset('js/plyr.min.js') }}"></script>
+    <script src="{{ asset("js/plyr.min.js") }}"></script>
     <!-- Main Script -->
     <script src="{{ asset("js/main.js") }}" type="text/javascript"></script>
     <script src="{{ asset("js/custom-chart.js") }}" type="text/javascript"></script>
-    @stack('scripts')
+    @stack("scripts")
 </body>
 
 </html>

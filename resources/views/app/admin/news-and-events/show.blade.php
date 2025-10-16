@@ -82,18 +82,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <h4>Basic</h4>
-                    </div>
-                    <div class="">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    </div>
+                    </div>                    
                     <div class="card-body">
                         <form id="eventForm" action="{{ route("admin.news-and-events.addEventItem", $newsAndEvent) }}"
                             method="POST">

@@ -24,16 +24,7 @@
                             enctype="multipart/form-data">
                             @csrf
                             @method("PUT")
-                            <div class="mb-4">
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                            <div class="mb-4">                               
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" placeholder="Type here" class="form-control" name="title"
                                     value="{{ $accreditation->title }}" required />
