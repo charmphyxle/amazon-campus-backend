@@ -18,10 +18,8 @@ class GalleryController extends Controller
     {
         $inputs = $request->validate([
             'images' => 'required|array',
-            'images.*' => 'image|mimes:jpeg,png,jpg,webp|max:2048' // 2MB Max
+            'images.*' => 'image|mimes:jpeg,png,jpg,webp|max:2048' 
         ]);
-
-
 
         $images = $request->file('images');
         foreach ($images as $image) {
