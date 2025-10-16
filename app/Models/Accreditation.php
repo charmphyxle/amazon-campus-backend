@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Accreditation extends Model
 {
@@ -17,4 +18,11 @@ class Accreditation extends Model
         'year',
         'description',
     ];
+
+    public function getImageUrlAttribute()
+    {
+        return $this->image
+            ? Storage::url('accreditations/' . $this->image)
+            : null;
+    }
 }
