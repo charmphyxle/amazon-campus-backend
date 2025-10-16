@@ -5,7 +5,7 @@
     <section class="content-main">
         <div class="content-header">
             <div>
-                <h2 class="content-title card-title">posters grid</h2>
+                <h2 class="content-title card-title">posters List</h2>
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
