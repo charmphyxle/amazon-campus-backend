@@ -60,7 +60,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::with('images')->orderBy('id', 'DESC')->paginate(10);
+        $galleries = Gallery::with('images')->latest()->paginate(10);
         return view('app.admin.gallery.index', compact('galleries'));
     }
 

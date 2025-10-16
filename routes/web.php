@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AccreditationController as AdminAccreditationController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\Admin\CalendarEventController as AdminCalendarEventController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\NewsAndEventController as AdminNewsAndEventController;
 use App\Http\Controllers\Admin\NewsLetterController as AdminNewsLetterController;
@@ -11,7 +12,6 @@ use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialControll
 use App\Http\Controllers\Admin\VideoGalleryController as AdminVideoGalleryController;
 use App\Http\Controllers\Admin\VideoTestimonialController as AdminVideoTestimonialController;
 use App\Http\Controllers\ApplicationFormController as AdminApplicationFormController;
-use App\Models\VideoTestimonial;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
@@ -35,6 +35,7 @@ Route::resource('news-letters', AdminNewsLetterController::class)->only(['index'
 Route::resource('video-galleries', AdminVideoGalleryController::class)->except(['show']);
 Route::resource('video-testimonials', AdminVideoTestimonialController::class)->except(['show']);
 Route::resource('posters', AdminPosterController::class)->except(['show', 'edit', 'update']);
+Route::resource('calendar-events', AdminCalendarEventController::class)->except(['show']);
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:admin'])->group(function () {});
