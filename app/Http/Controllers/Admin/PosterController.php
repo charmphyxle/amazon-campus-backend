@@ -16,7 +16,7 @@ class PosterController extends Controller
     public function index()
     {
         $posters = Poster::latest()->paginate(10);
-        return view('app.admin.posters.index');
+        return view('app.admin.posters.index', compact('posters'));
     }
 
     /**
@@ -39,6 +39,8 @@ class PosterController extends Controller
         Poster::create([
             'image' => $imageName,
         ]);
+
+        return back()->with('success', 'Poster added successfully.');
     }
 
     /**

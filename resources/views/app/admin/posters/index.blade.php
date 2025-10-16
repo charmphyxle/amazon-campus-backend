@@ -1,15 +1,15 @@
 @extends("components.layouts.admin.base")
-@section("title", "Accreditations")
+@section("title", "Posters")
 
 @section("content")
     <section class="content-main">
         <div class="content-header">
             <div>
-                <h2 class="content-title card-title">Accreditations grid</h2>
+                <h2 class="content-title card-title">posters grid</h2>
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("accreditations.create") }}" class="btn btn-primary btn-sm rounded">Create</a>
+                <a href="{{ route("posters.create") }}" class="btn btn-primary btn-sm rounded">Create</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -25,30 +25,20 @@
                 <table class="table table-responsive table-hover">
                     <thead>
                         <th>#</th>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Badge title</th>
-                        <th>Year</th>
-                        <th>Description</th>
+                        <th>Image</th>                        
                         <th>Action</th>
                     </thead>
                     <tbody>
-                        @forelse ($accreditations as $index => $accreditation)
+                        @forelse ($posters as $index => $poster)
                             <tr>
-                                <td>{{ $accreditations->firstItem() + $index}}</td>
+                                <td>{{ $posters->firstItem() + $index }}</td>
                                 <td>
-                                    <img src="{{ Storage::url("accreditations/" . $accreditation->image) }}"
-                                        alt="accreditation-image.png" width="100">
-                                </td>
-                                <td>{{ $accreditation->title }}</td>
-                                <td>{{ $accreditation->badge_title }}</td>
-                                <td>{{ $accreditation->year }}</td>
-                                <td>{{ $accreditation->description }}</td>
+                                    <img src="{{ Storage::url("posters/" . $poster->image) }}"
+                                        alt="poster-image.png" width="100">
+                                </td>                               
                                 <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="{{ route("accreditations.edit", $accreditation) }}"
-                                            class="btn btn-sm font-sm rounded btn-info">Edit</a>
-                                        <form action="{{ route("accreditations.destroy", $accreditation) }}" method="POST"
+                                    <div class="d-flex gap-2">                                       
+                                        <form action="{{ route("posters.destroy", $poster) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method("DELETE")
@@ -60,7 +50,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" align="center">No accreditations found.</td>
+                                <td colspan="7" align="center">No posters found.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -70,7 +60,7 @@
 
         <div class="pagination-area mt-30 mb-50">
             <tr>
-                {{ $accreditations->links() }}
+                {{ $posters->links() }}
             </tr>
         </div>
     </section>

@@ -73,7 +73,8 @@
                                                 alt="" width="100">
                                         </td>
                                         <td>
-                                            <form action="{{ route("gallery.deleteTempImage", $tempImage) }}" method="post">
+                                            <form action="{{ route("gallery.deleteTempImage", $tempImage) }}"
+                                                method="post">
                                                 @csrf
                                                 @method("DELETE")
                                                 <button class="btn btn-md rounded font-sm hover-up">Delete</button>
@@ -81,14 +82,14 @@
 
                                         </td>
                                     </tr>
-                                @empty                                   
+                                @empty
                                 @endforelse
-                                @forelse ($gallery->images as $image)
+                                @forelse ($gallery->images as $index => $image)
                                     <tr>
-                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <th scope="row">{{ $gallery->images->firstItem() + $index }}</th>
                                         <td>
-                                            <img src="{{ Storage::url("gallery-images/" . $image->image) }}"
-                                                alt="" width="100">
+                                            <img src="{{ Storage::url("gallery-images/" . $image->image) }}" alt=""
+                                                width="100">
                                         </td>
                                         <td>
                                             <form action="{{ route("gallery.deleteImage", $image) }}" method="post">
@@ -99,7 +100,7 @@
 
                                         </td>
                                     </tr>
-                                @empty                                   
+                                @empty
                                 @endforelse
 
                             </tbody>
