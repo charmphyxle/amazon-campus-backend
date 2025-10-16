@@ -9,7 +9,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("news-and-events.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
+                <a href="{{ route("admin.news-and-events.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -39,11 +39,11 @@
                                 <td>{{ $newsAndEvent->start_date }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route("news-and-events.edit", $newsAndEvent) }}"
+                                        <a href="{{ route("admin.news-and-events.edit", $newsAndEvent) }}"
                                             class="btn btn-sm font-sm rounded btn-info">Edit</a>
-                                        <a href="{{ route("news-and-events.show", $newsAndEvent) }}"
+                                        <a href="{{ route("admin.news-and-events.show", $newsAndEvent) }}"
                                             class="btn btn-sm font-sm rounded btn-warning">Show</a>
-                                        <form action="{{ route("news-and-events.destroy", $newsAndEvent) }}" method="POST"
+                                        <form action="{{ route("admin.news-and-events.destroy", $newsAndEvent) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method("DELETE")

@@ -20,7 +20,7 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form id="posterForm" action="{{ route("posters.store") }}" method="POST"
+                        <form id="posterForm" action="{{ route("admin.posters.store") }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method("POST")

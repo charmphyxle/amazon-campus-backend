@@ -95,7 +95,7 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        <form id="eventForm" action="{{ route("news-and-events.addEventItem", $newsAndEvent) }}"
+                        <form id="eventForm" action="{{ route("admin.news-and-events.addEventItem", $newsAndEvent) }}"
                             method="POST">
                             @csrf
                             @method("POST")
@@ -139,7 +139,7 @@
                                 <td>{{ $eventItem->time }}</td>
                                 <td>
                                     <form
-                                        action="{{ route("news-and-events.deleteEventItem", $eventItem) }}" method="POST">
+                                        action="{{ route("admin.news-and-events.deleteEventItem", $eventItem) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-md rounded font-sm hover-up float-end">Delete</button>

@@ -20,7 +20,7 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form id="accreditationForm" action="{{ route("accreditations.update", $accreditation) }}" method="POST"
+                        <form id="accreditationForm" action="{{ route("admin.accreditations.update", $accreditation) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method("PUT")

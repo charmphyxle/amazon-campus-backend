@@ -18,7 +18,7 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form id="galleryForm" action="{{ route("gallery.store") }}" method="POST">
+                        <form id="galleryForm" action="{{ route("admin.gallery.store") }}" method="POST">
                             @csrf
                             @method("POST")
                             <div class="mb-4">
@@ -73,7 +73,7 @@
                                                 alt="" width="100">
                                         </td>
                                         <td>
-                                            <form action="{{ route("gallery.deleteTempImage", $tempImage) }}" method="post">
+                                            <form action="{{ route("admin.gallery.deleteTempImage", $tempImage) }}" method="post">
                                                 @csrf
                                                 @method("DELETE")
                                                 <button class="btn btn-md rounded font-sm hover-up">Delete</button>

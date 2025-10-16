@@ -18,7 +18,7 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form id="testimonialForm" action="{{ route("testimonials.update", $testimonial) }}" method="POST">
+                        <form id="testimonialForm" action="{{ route("admin.testimonials.update", $testimonial) }}" method="POST">
                             @csrf
                             @method("PUT")
                             <div class="row">

@@ -9,7 +9,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("video-galleries.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
+                <a href="{{ route("admin.video-galleries.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -39,9 +39,9 @@
                                 <td>{{ $videoGallery->description }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route("video-galleries.edit", $videoGallery) }}"
+                                        <a href="{{ route("admin.video-galleries.edit", $videoGallery) }}"
                                             class="btn btn-sm font-sm rounded btn-info">Edit</a>                                        
-                                        <form action="{{ route("video-galleries.destroy", $videoGallery) }}" method="POST"
+                                        <form action="{{ route("admin.video-galleries.destroy", $videoGallery) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method("DELETE")

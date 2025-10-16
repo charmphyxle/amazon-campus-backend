@@ -52,9 +52,9 @@
                                 <td>{{ $applicationForm->phone }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route("application-forms.show", $applicationForm) }}"
+                                        <a href="{{ route("admin.application-forms.show", $applicationForm) }}"
                                             class="btn btn-sm font-sm rounded btn-info">Show</a>
-                                        <form action="{{ route("application-forms.destroy", $applicationForm) }}"
+                                        <form action="{{ route("admin.application-forms.destroy", $applicationForm) }}"
                                             method="POST" class="d-inline">
                                             @csrf
                                             @method("DELETE")

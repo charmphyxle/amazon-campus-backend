@@ -18,7 +18,7 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form id="testimonialForm" action="{{ route("testimonials.store") }}" method="POST">
+                        <form id="testimonialForm" action="{{ route("admin.testimonials.store") }}" method="POST">
                             @csrf
                             @method("POST")
                             <div class="row">

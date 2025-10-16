@@ -31,7 +31,7 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        <form id="eventForm" action="{{ route("calendar-events.store") }}" method="POST">
+                        <form id="eventForm" action="{{ route("admin.calendar-events.store") }}" method="POST">
                             @csrf
                             @method("POST")
                             <div class="row">

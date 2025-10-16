@@ -9,7 +9,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("accreditations.create") }}" class="btn btn-primary btn-sm rounded">Create</a>
+                <a href="{{ route("admin.accreditations.create") }}" class="btn btn-primary btn-sm rounded">Create</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -46,9 +46,9 @@
                                 <td>{{ $accreditation->description }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route("accreditations.edit", $accreditation) }}"
+                                        <a href="{{ route("admin.accreditations.edit", $accreditation) }}"
                                             class="btn btn-sm font-sm rounded btn-info">Edit</a>
-                                        <form action="{{ route("accreditations.destroy", $accreditation) }}" method="POST"
+                                        <form action="{{ route("admin.accreditations.destroy", $accreditation) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method("DELETE")

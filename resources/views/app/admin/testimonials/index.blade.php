@@ -10,7 +10,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("testimonials.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
+                <a href="{{ route("admin.testimonials.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -62,9 +62,9 @@
                                 <td>{{ $testimonial->class_year }}</td>
                                 <td>{{ $testimonial->batch }}</td>
                                 <td>
-                                    <a href="{{ route("testimonials.edit", $testimonial) }}"
+                                    <a href="{{ route("admin.testimonials.edit", $testimonial) }}"
                                         class="btn btn-sm font-sm rounded btn-info">Edit</a>
-                                    <form action="{{ route("testimonials.destroy", $testimonial) }}" method="POST"
+                                    <form action="{{ route("admin.testimonials.destroy", $testimonial) }}" method="POST"
                                         class="d-inline">
                                         @csrf
                                         @method("DELETE")

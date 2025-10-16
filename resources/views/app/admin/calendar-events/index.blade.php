@@ -9,7 +9,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("calendar-events.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
+                <a href="{{ route("admin.calendar-events.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -43,9 +43,9 @@
                                 <td>{{ $calendarEvent->description }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route("calendar-events.edit", $calendarEvent) }}"
+                                        <a href="{{ route("admin.calendar-events.edit", $calendarEvent) }}"
                                             class="btn btn-sm font-sm rounded btn-info">Edit</a>                                        
-                                        <form action="{{ route("calendar-events.destroy", $calendarEvent) }}" method="POST"
+                                        <form action="{{ route("admin.calendar-events.destroy", $calendarEvent) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method("DELETE")

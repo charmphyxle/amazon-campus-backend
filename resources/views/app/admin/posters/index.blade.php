@@ -9,7 +9,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("posters.create") }}" class="btn btn-primary btn-sm rounded">Create</a>
+                <a href="{{ route("admin.posters.create") }}" class="btn btn-primary btn-sm rounded">Create</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -38,7 +38,7 @@
                                 </td>                               
                                 <td>
                                     <div class="d-flex gap-2">                                       
-                                        <form action="{{ route("posters.destroy", $poster) }}" method="POST"
+                                        <form action="{{ route("admin.posters.destroy", $poster) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method("DELETE")

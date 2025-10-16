@@ -9,7 +9,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
             <div>
-                <a href="{{ route("gallery.create") }}" class="btn btn-primary btn-sm rounded">Create gallery</a>
+                <a href="{{ route("admin.gallery.create") }}" class="btn btn-primary btn-sm rounded">Create gallery</a>
             </div>
         </div>
         <div class="card mb-4">
@@ -36,12 +36,12 @@
                                     <a href="#" class="title text-truncate">{{ $gallery->title }}</a>
 
                                     <div class="d-flex gap-2 mt-2 justify-content-between align-items-center">
-                                        <a href="{{ route("gallery.edit", $gallery) }}"
+                                        <a href="{{ route("admin.gallery.edit", $gallery) }}"
                                             class="btn rounded font-sm hover-up btn-info mt-3"> <i
                                                 class="material-icons md-edit"></i>
                                             Edit
                                         </a>
-                                        <form action="{{ route("gallery.destroy", $gallery) }}" method="post">
+                                        <form action="{{ route("admin.gallery.destroy", $gallery) }}" method="post">
                                             @csrf
                                             @method("DELETE")
                                             <button class="btn btn-md rounded font-sm hover-up mt-3">

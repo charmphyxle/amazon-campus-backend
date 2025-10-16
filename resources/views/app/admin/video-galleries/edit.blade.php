@@ -31,7 +31,7 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        <form id="galleryForm" action="{{ route("video-galleries.update", $videoGallery) }}" method="POST">
+                        <form id="galleryForm" action="{{ route("admin.video-galleries.update", $videoGallery) }}" method="POST">
                             @csrf
                             @method("PUT")
                             <div class="row">

@@ -18,7 +18,7 @@
                         <h4>Basic</h4>
                     </div>
                     <div class="card-body">
-                        <form id="galleryEditForm" action="{{ route("gallery.update", $gallery) }}" method="POST">
+                        <form id="galleryEditForm" action="{{ route("admin.gallery.update", $gallery) }}" method="POST">
                             @csrf
                             @method("PUT")
                             <div class="mb-4">
@@ -73,7 +73,7 @@
                                                 alt="" width="100">
                                         </td>
                                         <td>
-                                            <form action="{{ route("gallery.deleteTempImage", $tempImage) }}"
+                                            <form action="{{ route("admin.gallery.deleteTempImage", $tempImage) }}"
                                                 method="post">
                                                 @csrf
                                                 @method("DELETE")
@@ -92,7 +92,7 @@
                                                 width="100">
                                         </td>
                                         <td>
-                                            <form action="{{ route("gallery.deleteImage", $image) }}" method="post">
+                                            <form action="{{ route("admin.gallery.deleteImage", $image) }}" method="post">
                                                 @csrf
                                                 @method("DELETE")
                                                 <button class="btn btn-md rounded font-sm hover-up">Delete</button>
@@ -114,7 +114,7 @@
                         <h4>Image form</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route("gallery.addImages") }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route("admin.gallery.addImages") }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method("POST")
                             <div class="input-upload">
