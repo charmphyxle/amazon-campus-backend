@@ -56,7 +56,7 @@ class GalleryController extends Controller
             }
         }      
        
-        return back()->with('success', 'Image deleted successfully!');
+        return back()->with('success', 'Image added successfully!');
     }
 
     public function deleteTempImage(TempImage $tempImage)
@@ -124,7 +124,7 @@ class GalleryController extends Controller
             $tempProductImage->delete();
         }
 
-        return redirect()->back()->with('success', 'Product is added successfully.');
+        return redirect()->back()->with('success', 'Gallery is added successfully.');
     }
 
 
