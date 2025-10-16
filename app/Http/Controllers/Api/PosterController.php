@@ -12,7 +12,7 @@ class PosterController extends Controller
 {
      public function index(): JsonResponse
     {
-        $posters = Poster::latest()->paginate(10);
+        $posters = Poster::latest()->paginate(env('PAGINATION_NUMBER'));
 
         return response()->json([
             'status' => 'success',

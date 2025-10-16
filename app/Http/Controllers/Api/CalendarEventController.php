@@ -12,7 +12,7 @@ class CalendarEventController extends Controller
 {
      public function index(): JsonResponse
     {
-        $calendarEvents = CalendarEvent::latest()->paginate(10);
+        $calendarEvents = CalendarEvent::latest()->paginate(env('PAGINATION_NUMBER'));
 
         return response()->json([
             'status' => 'success',

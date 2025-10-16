@@ -12,7 +12,7 @@ class AccreditationController extends Controller
 {
     public function index(): JsonResponse
     {
-        $accreditations = Accreditation::latest()->paginate(10);
+        $accreditations = Accreditation::latest()->paginate(env('PAGINATION_NUMBER'));
 
         return response()->json([
             'status' => 'success',

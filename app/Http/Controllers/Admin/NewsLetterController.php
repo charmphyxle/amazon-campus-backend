@@ -10,7 +10,7 @@ class NewsLetterController extends Controller
 {
     public function index()
     {
-        $newsLetters = NewsLetter::latest()->paginate(10);
+        $newsLetters = NewsLetter::latest()->paginate(env('PAGINATION_NUMBER'));
         return view('app.admin.news-letters.index', compact('newsLetters'));
     }
 }

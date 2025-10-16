@@ -12,7 +12,7 @@ class TestimonialController extends Controller
 {
     public function index(): JsonResponse
     {
-        $testimonials = Testimonial::latest()->paginate(10);
+        $testimonials = Testimonial::latest()->paginate(env('PAGINATION_NUMBER'));
 
         return response()->json([
             'status' => 'success',

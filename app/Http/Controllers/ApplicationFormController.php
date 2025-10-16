@@ -13,7 +13,7 @@ class ApplicationFormController extends Controller
      */
     public function index()
     {
-        $applicationForms = ApplicationForm::latest()->paginate(10);
+        $applicationForms = ApplicationForm::latest()->paginate(env('PAGINATION_NUMBER'));
         return view('app.admin.application-forms.index', compact('applicationForms'));
     }
 

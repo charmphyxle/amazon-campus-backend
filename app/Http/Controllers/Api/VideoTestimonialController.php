@@ -12,7 +12,7 @@ class VideoTestimonialController extends Controller
 {
     public function index(): JsonResponse
     {
-        $videoTestimonials = VideoTestimonial::latest()->paginate(10);
+        $videoTestimonials = VideoTestimonial::latest()->paginate(env('PAGINATION_NUMBER'));
 
         return response()->json([
             'status' => 'success',

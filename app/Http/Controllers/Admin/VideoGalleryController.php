@@ -14,7 +14,7 @@ class VideoGalleryController extends Controller
      */
     public function index()
     {
-        $videoGalleries = VideoGallery::latest()->paginate(10);
+        $videoGalleries = VideoGallery::latest()->paginate(env('PAGINATION_NUMBER'));
 
         return view('app.admin.video-galleries.index', compact('videoGalleries'));
     }

@@ -14,7 +14,7 @@ class CalendarEventController extends Controller
      */
     public function index()
     {
-        $calendarEvents = CalendarEvent::latest()->paginate(10);
+        $calendarEvents = CalendarEvent::latest()->paginate(env('PAGINATION_NUMBER'));
         return view('app.admin.calendar-events.index', compact('calendarEvents'));
     }
 

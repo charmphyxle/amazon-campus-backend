@@ -46,7 +46,7 @@ class NewsAndEventController extends Controller
      */
     public function index()
     {
-        $newsAndEvents = NewsAndEvent::latest()->paginate(5);
+        $newsAndEvents = NewsAndEvent::latest()->paginate(env('PAGINATION_NUMBER'));
         return view('app.admin.news-and-events.index', compact('newsAndEvents'));
     }
 

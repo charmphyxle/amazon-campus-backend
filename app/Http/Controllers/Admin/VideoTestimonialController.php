@@ -15,7 +15,7 @@ class VideoTestimonialController extends Controller
      */
     public function index()
     {
-        $videoTestimonials = VideoTestimonial::latest()->paginate(10);
+        $videoTestimonials = VideoTestimonial::latest()->paginate(env('PAGINATION_NUMBER'));
         return view('app.admin.video-testimonials.index', compact('videoTestimonials'));
     }
 

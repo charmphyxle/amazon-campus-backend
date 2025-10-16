@@ -15,7 +15,7 @@ class AccreditationController extends Controller
      */
     public function index()
     {
-        $accreditations = Accreditation::latest()->paginate(10);
+        $accreditations = Accreditation::latest()->paginate(env('PAGINATION_NUMBER'));
         return view('app.admin.accreditations.index', compact('accreditations'));
     }
 

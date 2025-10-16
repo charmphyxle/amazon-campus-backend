@@ -12,7 +12,7 @@ class GalleryController extends Controller
 {
     public function index(): JsonResponse
     {
-        $galleries = Gallery::with('images')->latest()->paginate(10);
+        $galleries = Gallery::with('images')->latest()->paginate(env('PAGINATION_NUMBER'));
 
         return response()->json([
             'status' => 'success',

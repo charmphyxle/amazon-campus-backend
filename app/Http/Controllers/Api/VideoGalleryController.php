@@ -12,7 +12,7 @@ class VideoGalleryController extends Controller
 {
     public function index(): JsonResponse
     {
-        $videoGalleries = VideoGallery::latest()->paginate(10);
+        $videoGalleries = VideoGallery::latest()->paginate(env('PAGINATION_NUMBER'));
 
         return response()->json([
             'status' => 'success',
