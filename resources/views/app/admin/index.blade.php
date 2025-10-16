@@ -4,17 +4,19 @@
  @endsection
  @section("content")
      <section class="content-main">
-         <div class="content-header">
+         {{-- <div class="content-header">
              <div>
                  <h2 class="content-title card-title">Dashboard</h2>
                  <p>Whole data about your business here</p>
              </div>
-             <div>
-                 <a href="#" class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>Create
-                     report</a>
-             </div>
+         </div> --}}
+
+         <div class="d-flex justify-content-center align-items-center full-screen">
+             {{-- <img src="your-image.jpg" alt="Centered Image" class="img-fluid" /> --}}
+             <h2>Welcome to Phyxle dashboard</h2>
          </div>
-         <div class="row">
+
+         {{-- <div class="row">
              <div class="col-lg-3">
                  <div class="card card-body mb-4">
                      <article class="icontext">
@@ -438,6 +440,7 @@
                      </li>
                  </ul>
              </nav>
-         </div>
+         </div>  --}}
+
      </section>
  @endsection
