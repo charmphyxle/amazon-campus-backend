@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Nest Dashboard</title>
+    <title>Login | {{ env('APP_NAME') }} </title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -46,7 +46,7 @@
                                 @csrf
                                 @method("POST")
                                 <div class="mb-3">
-                                    <label for="">Enter email</label>
+                                    <label class="mb-2" for="">Enter email</label>
                                     <input class="form-control" type="text" id="email" name="email" />
                                     @error('email')
                                         <div class="text-danger">{{ $message }}</div>
@@ -54,7 +54,7 @@
                                 </div>
                                 <!-- form-group// -->
                                 <div class="mb-3">
-                                    <label for="">Enter password</label>
+                                    <label class="mb-2" for="">Enter password</label>
                                     <input class="form-control" type="password" name="password" />
                                     @error('password')
                                         <div class="text-danger">{{ $message }}</div>
