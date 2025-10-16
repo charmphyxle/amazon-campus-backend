@@ -104,9 +104,9 @@
                 </div>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="page-blank.html">
+                <a class="menu-link" href="#">
                     <i class="icon material-icons md-local_offer"></i>
-                    <span class="text"> Starter page </span>
+                    <span class="text"> Website </span>
                 </a>
             </li>
         </ul>
