@@ -14,16 +14,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-           // ApplicationFormSeeder::class,
+            // ApplicationFormSeeder::class,
             //NewsAndEventSeeder::class,
-            NewsLetterSeeder::class,
-            VideoGallerySeeder::class,
-            CalendarEventSeeder::class,
+            // NewsLetterSeeder::class,
+            // VideoGallerySeeder::class,
+            // CalendarEventSeeder::class,
         ]);
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Adminstrator',
+            'email' => 'admin@test.com',
+            'password' => bcrypt('123456789'),
+        ]);
     }
 }
