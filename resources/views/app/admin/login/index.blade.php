@@ -33,12 +33,21 @@
                             {{-- <img src="" alt=""> --}}
                             <h2 class="text-center">{{ env("APP_NAME") }}</h2>
                             <h4 class="card-title mb-4">Sign in</h4>
-                            <form action="{{ route('login') }}" method="POST">
+                            @if ($errors->any())
+                                <div class="alert alert-danger m-3">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form action="{{ route("login") }}" method="POST">
                                 @csrf
-                                @method('POST')
+                                @method("POST")
                                 <div class="mb-3">
                                     <label for="">Enter email</label>
-                                    <input class="form-control" type="text" id="email"  name="email" />
+                                    <input class="form-control" type="text" id="email" name="email" />
                                 </div>
                                 <!-- form-group// -->
                                 <div class="mb-3">
