@@ -19,11 +19,25 @@ class ProfileController extends Controller
             'name' => ['required', 'max:255'],
         ]);
 
+        auth()->user()->update([
+            'email' => $request->email,
+            'name' => $request->name,
+        ]);
+
         return back()->with('success', 'Profile information updated successfully.');
     }
 
-    public function updatePassword()
+    public function updatePassword(Request $request)
     {
+        $request->validate([
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        
+        auth()->user()->update([
+            'password' => bcrypt($request->password),
+        ]);
+
         return back()->with('success', 'Profile password updated successfully.');
     }
 }

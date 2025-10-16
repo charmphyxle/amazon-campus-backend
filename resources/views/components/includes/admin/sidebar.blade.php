@@ -99,9 +99,8 @@
                     <i class="icon material-icons md-settings"></i>
                     <span class="text">Settings</span>
                 </a>
-                <div class="submenu">
-                    <a href="page-settings-1.html">Setting sample 1</a>
-                    <a href="page-settings-2.html">Setting sample 2</a>
+                <div class="submenu">                    
+                    <a href="{{ route('admin.profile.index') }}">Profile</a>
                 </div>
             </li>
             <li class="menu-item">
