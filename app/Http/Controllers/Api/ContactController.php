@@ -14,7 +14,7 @@ class ContactController extends Controller
         $inputs = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'required|numeric|max:20',
+            'phone' => 'required|numeric|digits_between:10,20',
             'inquiry_type' => 'required|max:255',
             'subject' => 'required|max:255',
             'message' => 'required|string|max:1000',
@@ -22,6 +22,9 @@ class ContactController extends Controller
         
         Mail::send(new ContactMail($inputs));
 
-        return response()->json(['message' => 'Contact form submitted successfully.'], 200);
+        return response()->json([
+            'message' => 'Contact form submitted successfully.',
+            'data' => $inputs,
+        ], 200);
     }
 }
