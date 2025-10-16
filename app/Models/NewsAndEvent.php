@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class NewsAndEvent extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'title',
         'badge_title',
@@ -25,7 +26,14 @@ class NewsAndEvent extends Model
         'image'
     ];
 
-    public function eventItems():HasMany
+    public function getImageUrlAttribute()
+    {
+        return $this->image
+            ? Storage::url('news-and-events/' . $this->image)
+            : null;
+    }
+
+    public function eventItems(): HasMany
     {
         return $this->hasMany(EventItem::class);
     }
