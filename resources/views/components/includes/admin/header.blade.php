@@ -26,11 +26,18 @@
                      aria-expanded="false"> <img class="img-xs rounded-circle"
                          src="{{ asset("imgs/people/avatar-2.png") }}" alt="User" /></a>
                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-                     <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit
+                     <a class="dropdown-item" href="{{ route('admin.profile.index') }}"><i class="material-icons md-perm_identity"></i>
                          Profile</a>
                      <div class="dropdown-divider"></div>
-                     <a class="dropdown-item text-danger" href="#"><i
-                             class="material-icons md-exit_to_app"></i>Logout</a>
+
+                     <form action="{{ route("auth.logout") }}" method="POST">
+                         @csrf
+                         @method('POST')
+                         <button class="dropdown-item text-danger" href="#">
+                             <i class="material-icons md-exit_to_app"></i>
+                             Logout
+                         </button>
+                     </form>
                  </div>
              </li>
          </ul>
