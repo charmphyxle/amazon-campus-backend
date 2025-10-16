@@ -30,26 +30,30 @@
                 <div class="col-12">
                     <div class="card mx-auto card-login">
                         <div class="card-body">
+                            {{-- <img src="" alt=""> --}}
+                            <h2 class="text-center">{{ env("APP_NAME") }}</h2>
                             <h4 class="card-title mb-4">Sign in</h4>
                             <form>
                                 <div class="mb-3">
-                                    <input class="form-control" placeholder="Username or email" type="text" />
+                                    <label for="">Enter email</label>
+                                    <input class="form-control" type="text" id="email"  name="email" />
                                 </div>
                                 <!-- form-group// -->
                                 <div class="mb-3">
-                                    <input class="form-control" placeholder="Password" type="password" />
+                                    <label for="">Enter password</label>
+                                    <input class="form-control" type="password" name="password" />
                                 </div>
                                 <!-- form-group// -->
                                 {{-- <div class="mb-3">
-                            <a href="#" class="float-end font-sm text-muted">Forgot password?</a>
-                            <label class="form-check">
-                                <input type="checkbox" class="form-check-input" checked="" />
-                                <span class="form-check-label">Remember</span>
-                            </label>
-                        </div> --}}
+                                    <a href="#" class="float-end font-sm text-muted">Forgot password?</a>
+                                    <label class="form-check">
+                                        <input type="checkbox" class="form-check-input" checked="" />
+                                        <span class="form-check-label">Remember</span>
+                                    </label>
+                                </div> --}}
                                 <!-- form-group form-check .// -->
                                 <div class="mb-4">
-                                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                                    <button type="submit" class="btn btn-primary float-end">Login</button>
                                 </div>
                                 <!-- form-group// -->
                             </form>
