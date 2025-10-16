@@ -18,61 +18,61 @@
             </li>
 
             <li class="menu-item {{ request()->routeIs('news-and-events.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("news-and-events.index") }}">
+                <a class="menu-link" href="{{ route("admin.news-and-events.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">News & Events</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('gallery.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("gallery.index") }}">
+                <a class="menu-link" href="{{ route("admin.gallery.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Gallery</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('testimonials.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("testimonials.index") }}">
+                <a class="menu-link" href="{{ route("admin.testimonials.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Testimonials</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('accreditations.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("accreditations.index") }}">
+                <a class="menu-link" href="{{ route("admin.accreditations.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Accreditations</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('application-forms.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("application-forms.index") }}">
+                <a class="menu-link" href="{{ route("admin.application-forms.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Application Forms</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('news-letters.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("news-letters.index") }}">
+                <a class="menu-link" href="{{ route("admin.news-letters.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">News Letters</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('video-galleries.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("video-galleries.index") }}">
+                <a class="menu-link" href="{{ route("admin.video-galleries.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Video Galleries</span>
                 </a>
             </li>
             <li class="menu-item {{ request()->routeIs('video-testimonials.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("video-testimonials.index") }}">
+                <a class="menu-link" href="{{ route("admin.video-testimonials.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Video Testimonials</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('calendar-events.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("calendar-events.index") }}">
+            <li class="menu-item {{ request()->routeIs('admin.calendar-events.*') ? 'active' : '' }}">
+                <a class="menu-link" href="{{ route("admin.calendar-events.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Calendar Events</span>
                 </a>
             </li>
-            <li class="menu-item {{ request()->routeIs('posters.*') ? 'active' : '' }}">
-                <a class="menu-link" href="{{ route("posters.index") }}">
+            <li class="menu-item {{ request()->routeIs('admin.posters.*') ? 'active' : '' }}">
+                <a class="menu-link" href="{{ route("admin.posters.index") }}">
                     <i class="icon material-icons md-comment"></i>
                     <span class="text">Posters</span>
                 </a>

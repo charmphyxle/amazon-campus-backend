@@ -15,29 +15,28 @@ use App\Http\Controllers\ApplicationFormController as AdminApplicationFormContro
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/login', [AuthController::class, 'index'])->name('login.index');
+    Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 });
 
-//admin routes
-Route::get('/', [BaseController::class, 'index'])->name('admin.index');
-Route::delete('news-and-events/delete-item/{event_item}', [AdminNewsAndEventController::class, 'deleteEventItem'])->name('news-and-events.deleteEventItem');
-Route::post('news-and-events/{news_and_event}/add-event-item', [AdminNewsAndEventController::class, 'addEventItem'])->name('news-and-events.addEventItem');
-Route::resource('news-and-events', AdminNewsAndEventController::class);
-Route::post('/gallery/add-images', [AdminGalleryController::class, 'addImages'])->name('gallery.addImages');
-Route::delete('/gallery/{temp_image}/delete', [AdminGalleryController::class, 'deleteTempImage'])->name('gallery.deleteTempImage');
-Route::delete('/gallery/{image}/delete-image', [AdminGalleryController::class, 'deleteImage'])->name('gallery.deleteImage');
-Route::resource('gallery', AdminGalleryController::class)->except(['show']);
-Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
-Route::resource('accreditations', AdminAccreditationController::class)->except(['show']);
-Route::resource('application-forms', AdminApplicationFormController::class)->only(['index', 'show', 'destroy']);
-Route::resource('news-letters', AdminNewsLetterController::class)->only(['index']);
-Route::resource('video-galleries', AdminVideoGalleryController::class)->except(['show']);
-Route::resource('video-testimonials', AdminVideoTestimonialController::class)->except(['show']);
-Route::resource('posters', AdminPosterController::class)->except(['show', 'edit', 'update']);
-Route::resource('calendar-events', AdminCalendarEventController::class)->except(['show']);
-
 Route::middleware(['auth'])->group(function () {
-    Route::middleware(['can:admin'])->group(function () {});
+    Route::middleware(['can:admin'])->name('admin.')->group(function () {
+        Route::get('/', [BaseController::class, 'index'])->name('index');
+        Route::delete('news-and-events/delete-item/{event_item}', [AdminNewsAndEventController::class, 'deleteEventItem'])->name('news-and-events.deleteEventItem');
+        Route::post('news-and-events/{news_and_event}/add-event-item', [AdminNewsAndEventController::class, 'addEventItem'])->name('news-and-events.addEventItem');
+        Route::resource('news-and-events', AdminNewsAndEventController::class);
+        Route::post('/gallery/add-images', [AdminGalleryController::class, 'addImages'])->name('gallery.addImages');
+        Route::delete('/gallery/{temp_image}/delete', [AdminGalleryController::class, 'deleteTempImage'])->name('gallery.deleteTempImage');
+        Route::delete('/gallery/{image}/delete-image', [AdminGalleryController::class, 'deleteImage'])->name('gallery.deleteImage');
+        Route::resource('gallery', AdminGalleryController::class)->except(['show']);
+        Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
+        Route::resource('accreditations', AdminAccreditationController::class)->except(['show']);
+        Route::resource('application-forms', AdminApplicationFormController::class)->only(['index', 'show', 'destroy']);
+        Route::resource('news-letters', AdminNewsLetterController::class)->only(['index']);
+        Route::resource('video-galleries', AdminVideoGalleryController::class)->except(['show']);
+        Route::resource('video-testimonials', AdminVideoTestimonialController::class)->except(['show']);
+        Route::resource('posters', AdminPosterController::class)->except(['show', 'edit', 'update']);
+        Route::resource('calendar-events', AdminCalendarEventController::class)->except(['show']);
+    });
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
