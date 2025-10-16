@@ -65,6 +65,12 @@
                     <span class="text">Video Testimonials</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a class="menu-link" href="{{ route("calendar-events.index") }}">
+                    <i class="icon material-icons md-comment"></i>
+                    <span class="text">Calendar Events</span>
+                </a>
+            </li>
 
             {{-- 
             <li class="menu-item has-submenu">

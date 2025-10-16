@@ -41,7 +41,7 @@ class CalendarEventController extends Controller
      */
     public function edit(CalendarEvent $calendarEvent)
     {
-        return view('app.admin.calendar-events.edit', compact('calendarEvents'));
+        return view('app.admin.calendar-events.edit', compact('calendarEvent'));
     }
 
     /**
