@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\GalleryController as ApiGalleryController;
 use App\Http\Controllers\Api\NewsAndEventController as ApiNewsAndEventController;
 use App\Http\Controllers\Api\TestimonialController as ApiTestimonialController;
 use App\Http\Controllers\Api\VideoGalleryController as ApiVideoGalleryController;
+use App\Http\Controllers\Api\VideoTestimonialController as ApiVideoTestimonialController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,6 +18,7 @@ Route::apiResource('galleries', ApiGalleryController::class)->only('index');
 Route::apiResource('testimonials', ApiTestimonialController::class)->only('index');
 Route::apiResource('accreditations', ApiAccreditationController::class)->only('index');
 Route::apiResource('video-galleries', ApiVideoGalleryController::class)->only('index');
+Route::apiResource('video-testimonials', ApiVideoTestimonialController::class)->only('index');
 Route::post('/contact', [ContactController::class, 'sendMail']);
 
 Route::middleware('auth:sanctum')->group(function () {  
