@@ -65,7 +65,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($tempImages as $tempImage)
+                                {{-- @forelse ($tempImages as $tempImage)
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>
@@ -83,10 +83,10 @@
                                         </td>
                                     </tr>
                                 @empty
-                                @endforelse
+                                @endforelse --}}
                                 @forelse ($gallery->images as $index => $image)
                                     <tr>
-                                        <th scope="row">{{ $gallery->images->firstItem() + $index }}</th>
+                                        <th scope="row">{{ $loop->iteration }}</th>
                                         <td>
                                             <img src="{{ Storage::url("gallery-images/" . $image->image) }}" alt=""
                                                 width="100">
@@ -101,6 +101,9 @@
                                         </td>
                                     </tr>
                                 @empty
+                                <tr>
+                                    <td colspan="2" align="center">No image found.</td>
+                                </tr>
                                 @endforelse
 
                             </tbody>
@@ -114,7 +117,7 @@
                         <h4>Image form</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route("admin.gallery.addImages") }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route("admin.gallery.addGalleryImages", $gallery) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method("POST")
                             <div class="input-upload">

@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('news-and-events/delete-item/{event_item}', [AdminNewsAndEventController::class, 'deleteEventItem'])->name('news-and-events.deleteEventItem');
         Route::post('news-and-events/{news_and_event}/add-event-item', [AdminNewsAndEventController::class, 'addEventItem'])->name('news-and-events.addEventItem');
         Route::resource('news-and-events', AdminNewsAndEventController::class);
+        Route::post('/gallery/add-gallery-images/{gallery}', [AdminGalleryController::class, 'addGalleryImages'])->name('gallery.addGalleryImages');
         Route::post('/gallery/add-images', [AdminGalleryController::class, 'addImages'])->name('gallery.addImages');
         Route::delete('/gallery/{temp_image}/delete', [AdminGalleryController::class, 'deleteTempImage'])->name('gallery.deleteTempImage');
         Route::delete('/gallery/{image}/delete-image', [AdminGalleryController::class, 'deleteImage'])->name('gallery.deleteImage');

@@ -14,6 +14,29 @@ use Illuminate\Support\Str;
 
 class GalleryController extends Controller
 {
+    public function addGalleryImages(Request $request, Gallery $gallery)
+    {
+        $inputs = $request->validate([
+            'images' => 'required|array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,webp|max:2048' // 2MB Max
+        ]);
+
+
+
+        $images = $request->file('images');
+        foreach ($images as $image) {
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+            Storage::disk('public')->putFileAs('gallery-images', $image, $imageName);
+
+            Image::create([
+                'gallery_id' => $gallery->id,
+                'image' => $imageName,
+            ]);
+        }
+
+        return back()->with('success', 'Images added successfully.');
+    }
 
     public function addImages(Request $request)
     {
@@ -107,7 +130,7 @@ class GalleryController extends Controller
 
         return redirect()->back()->with('success', 'Product is added successfully.');
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -128,20 +151,20 @@ class GalleryController extends Controller
         $gallery->update($inputs);
         $tempImages = TempImage::all();
 
-        if ($tempImages) {
-            foreach ($tempImages as $tempProductImage) {
-                Storage::disk('public')->move(
-                    'temp-gallery-images/' . $tempProductImage->image,
-                    'gallery-images/' . $tempProductImage->image
-                );
+        // if ($tempImages) {
+        //     foreach ($tempImages as $tempProductImage) {
+        //         Storage::disk('public')->move(
+        //             'temp-gallery-images/' . $tempProductImage->image,
+        //             'gallery-images/' . $tempProductImage->image
+        //         );
 
-                Image::create([
-                    'gallery_id' => $gallery->id,
-                    'image' => $tempProductImage->image,
-                ]);
-                $tempProductImage->delete();
-            }
-        }
+        //         Image::create([
+        //             'gallery_id' => $gallery->id,
+        //             'image' => $tempProductImage->image,
+        //         ]);
+        //         $tempProductImage->delete();
+        //     }
+        // }
 
         return redirect()->back()->with('success', 'Gallery is updated successfully.');
     }

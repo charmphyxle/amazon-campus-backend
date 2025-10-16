@@ -97,7 +97,7 @@
                         <h4>Image form</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route("gallery.addImages") }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route("admin.gallery.addImages") }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method("POST")
                             <div class="input-upload">
