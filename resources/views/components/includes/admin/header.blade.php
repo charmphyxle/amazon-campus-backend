@@ -35,19 +35,19 @@
                  <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownLanguage"
                      aria-expanded="false"><i class="material-icons md-public"></i></a>
                  <div class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownLanguage">
-                     <a class="dropdown-item text-brand" href="#"><img src="assets/imgs/theme/flag-us.png"
-                             alt="English" />English</a>
-                     <a class="dropdown-item" href="#"><img src="assets/imgs/theme/flag-fr.png"
+                     <a class="dropdown-item text-brand" href="#"><img
+                             src="{{ asset("imgs/theme/flag-us.png") }}" alt="English" />English</a>
+                     <a class="dropdown-item" href="#"><img src="{{ asset("imgs/theme/flag-fr.png") }}"
                              alt="Français" />Français</a>
-                     <a class="dropdown-item" href="#"><img src="assets/imgs/theme/flag-jp.png"
+                     <a class="dropdown-item" href="#"><img src="{{ asset("imgs/theme/flag-jp.png") }}"
                              alt="Français" />日本語</a>
-                     <a class="dropdown-item" href="#"><img src="assets/imgs/theme/flag-cn.png"
+                     <a class="dropdown-item" href="#"><img src="{{ asset("imgs/theme/flag-cn.png") }}"
                              alt="Français" />中国人</a>
                  </div>
              </li>
              <li class="dropdown nav-item">
                  <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount"
-                     aria-expanded="false"> <img class="img-xs rounded-circle" src="assets/imgs/people/avatar-2.png"
+                     aria-expanded="false"> <img class="img-xs rounded-circle" src="{{ asset('imgs/people/avatar-2.png') }}"
                          alt="User" /></a>
                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
                      <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit
