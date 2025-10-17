@@ -42,7 +42,7 @@ class VideoTestimonialController extends Controller
         }
         VideoTestimonial::create($inputs);
 
-        return back()->with(['success', 'Video testimonial added successfully.']);
+        return back()->with('success', 'Video testimonial added successfully.');
     }
 
     /**
