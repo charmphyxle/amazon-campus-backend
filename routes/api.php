@@ -13,8 +13,7 @@ use App\Http\Controllers\Api\VideoGalleryController as ApiVideoGalleryController
 use App\Http\Controllers\Api\VideoTestimonialController as ApiVideoTestimonialController;
 use Illuminate\Support\Facades\Route;
 
-// Route::post('/register', [AuthController::class, 'register']);
-// Route::post('/login', [AuthController::class, 'login']);
+
 Route::apiResource('news-and-events', ApiNewsAndEventController::class)->only('index');
 Route::apiResource('galleries', ApiGalleryController::class)->only('index');
 Route::apiResource('testimonials', ApiTestimonialController::class)->only('index');
@@ -26,7 +25,10 @@ Route::apiResource('calendar-events', ApiCalendarEventController::class)->only('
 Route::apiResource('application-forms', ApiApplicationFormController::class)->only('store');
 Route::post('/contact', [ContactController::class, 'sendMail']);
 
-Route::middleware('auth:sanctum')->group(function () {  
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/profile', [AuthController::class, 'profile']);
-});
+// auth routes
+// Route::post('/register', [AuthController::class, 'register']);
+// Route::post('/login', [AuthController::class, 'login']);
+// Route::middleware('auth:sanctum')->group(function () {  
+//     Route::post('/logout', [AuthController::class, 'logout']);
+//     Route::get('/profile', [AuthController::class, 'profile']);
+// });
