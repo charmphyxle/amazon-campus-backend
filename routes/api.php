@@ -13,7 +13,6 @@ use App\Http\Controllers\Api\VideoGalleryController as ApiVideoGalleryController
 use App\Http\Controllers\Api\VideoTestimonialController as ApiVideoTestimonialController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::apiResource('news-and-events', ApiNewsAndEventController::class)->only('index');
 Route::apiResource('galleries', ApiGalleryController::class)->only('index');
 Route::apiResource('testimonials', ApiTestimonialController::class)->only('index');
