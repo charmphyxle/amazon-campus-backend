@@ -16,7 +16,6 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-
             <li class="menu-item {{ request()->routeIs('admin.news-and-events.*') ? 'active' : '' }}">
                 <a class="menu-link" href="{{ route("admin.news-and-events.index") }}">
                     <i class="icon material-icons md-comment"></i>
