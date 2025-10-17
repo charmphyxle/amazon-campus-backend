@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AccreditationController as ApiAccreditationController;
+use App\Http\Controllers\Api\ApplicationFormController as ApiApplicationFormController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CalendarEventController as ApiCalendarEventController;
 use App\Http\Controllers\Api\ContactController;
@@ -12,7 +13,6 @@ use App\Http\Controllers\Api\VideoGalleryController as ApiVideoGalleryController
 use App\Http\Controllers\Api\VideoTestimonialController as ApiVideoTestimonialController;
 use Illuminate\Support\Facades\Route;
 
-
 // Route::post('/register', [AuthController::class, 'register']);
 // Route::post('/login', [AuthController::class, 'login']);
 Route::apiResource('news-and-events', ApiNewsAndEventController::class)->only('index');
@@ -23,6 +23,7 @@ Route::apiResource('video-galleries', ApiVideoGalleryController::class)->only('i
 Route::apiResource('video-testimonials', ApiVideoTestimonialController::class)->only('index');
 Route::apiResource('posters', ApiPosterController::class)->only('index');
 Route::apiResource('calendar-events', ApiCalendarEventController::class)->only('index');
+Route::apiResource('application-forms', ApiApplicationFormController::class)->only('store');
 Route::post('/contact', [ContactController::class, 'sendMail']);
 
 Route::middleware('auth:sanctum')->group(function () {  
