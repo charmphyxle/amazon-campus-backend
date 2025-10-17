@@ -21,7 +21,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::middleware(['can:admin'])->name('admin.')->group(function () {
+    Route::middleware(['can:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminBaseController::class, 'index'])->name('index');
         Route::delete('news-and-events/delete-item/{event_item}', [AdminNewsAndEventController::class, 'deleteEventItem'])->name('news-and-events.deleteEventItem');
         Route::post('news-and-events/{news_and_event}/add-event-item', [AdminNewsAndEventController::class, 'addEventItem'])->name('news-and-events.addEventItem');

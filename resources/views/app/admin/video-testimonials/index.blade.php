@@ -36,29 +36,31 @@
                             <tr>
                                 <td>{{ $videoTestimonials->firstItem() + $index }}</td>
                                 <td>{{ $videoTestimonial->title }}</td>
-                               
-                                <td align="center">
-                                     <div class="w-50">
 
-                                         <video id="player" class="plyr__video-embed" playsinline controls >
-                                             <source src="{{ Storage::url('video-testimonials/' . $videoTestimonial->video) }}" type="video/mp4"  />
-                                                Your browser doesn’t support HTML5 video.
-                                            </video>
-                                            @pushOnce("scripts")
+                                <td align="center">
+                                    <div class="w-50">
+                                        <video id="player-{{ $videoTestimonial->id }}" class="plyr__video-embed" playsinline
+                                            controls>
+                                            <source
+                                                src="{{ Storage::url("video-testimonials/" . $videoTestimonial->video) }}"
+                                                type="video/mp4" />
+                                            Your browser doesn’t support HTML5 video.
+                                        </video>
+                                        @push("scripts")
                                             <script>
-                                                const player = new Plyr('#player');
-                                                </script>
-                                    @endPushOnce                                  
-                                </div>
+                                               new Plyr('#player-{{ $videoTestimonial->id }}');
+                                            </script>
+                                        @endPush
+                                    </div>
                                 </td>
                                 <td>{{ $videoTestimonial->name }}</td>
                                 <td>{{ $videoTestimonial->course }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="{{ route("admin.video-testimonials.edit", $videoTestimonial) }}"
-                                            class="btn btn-sm font-sm rounded btn-info">Edit</a>                                       
-                                        <form action="{{ route("admin.video-testimonials.destroy", $videoTestimonial) }}" method="POST"
-                                            class="d-inline">
+                                            class="btn btn-sm font-sm rounded btn-info">Edit</a>
+                                        <form action="{{ route("admin.video-testimonials.destroy", $videoTestimonial) }}"
+                                            method="POST" class="d-inline">
                                             @csrf
                                             @method("DELETE")
                                             <button type="submit"
