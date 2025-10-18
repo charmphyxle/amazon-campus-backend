@@ -1,5 +1,5 @@
 @extends("components.layouts.admin.base")
-@section("title", "$newsAndEvent->first_name | News And Event")
+@section("title", "$newsAndEvent->title | News And Event")
 
 @section("content")
     <section class="content-main">
