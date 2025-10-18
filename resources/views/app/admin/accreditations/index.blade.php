@@ -62,7 +62,7 @@
 
         <div class="pagination-area mt-30 mb-50">
             <tr>
-                {{ $accreditations->links() }}
+                {{ $accreditations->onEachSide(env('PAGINATION_ON_EACH_SIDE'))->links() }}
             </tr>
         </div>
     </section>

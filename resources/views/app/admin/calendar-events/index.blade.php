@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="pagination-area mt-30 mb-50">
-            {{ $calendarEvents->links() }}
+            {{ $calendarEvents->onEachSide(env('PAGINATION_ON_EACH_SIDE'))->links() }}
         </div>
     </section>
 @endsection

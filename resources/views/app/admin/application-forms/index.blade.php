@@ -55,7 +55,7 @@
         </div>
 
         <div class="pagination-area mt-30 mb-50">
-            {{ $applicationForms->links() }}
+            {{ $applicationForms->onEachSide(env('PAGINATION_ON_EACH_SIDE'))->links() }}
         </div>
     </section>
 @endsection

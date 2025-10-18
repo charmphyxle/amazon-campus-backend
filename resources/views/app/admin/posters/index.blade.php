@@ -52,7 +52,7 @@
 
         <div class="pagination-area mt-30 mb-50">
             <tr>
-                {{ $posters->links() }}
+                {{ $posters->onEachSide(env('PAGINATION_ON_EACH_SIDE'))->links() }}
             </tr>
         </div>
     </section>

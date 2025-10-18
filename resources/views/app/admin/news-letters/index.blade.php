@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="pagination-area mt-30 mb-50">
-            {{ $newsLetters->links() }}
+            {{ $newsLetters->onEachSide(env('PAGINATION_ON_EACH_SIDE'))->links() }}
         </div>
     </section>
 @endsection
