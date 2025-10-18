@@ -12,8 +12,8 @@
          </div> --}}
 
          <div class="d-flex justify-content-center align-items-center full-screen">
-             {{-- <img src="your-image.jpg" alt="Centered Image" class="img-fluid" /> --}}
-             <h2>Welcome to Phyxle dashboard</h2>
+             <img src="{{ asset('images/logo-1.png') }}" alt="Centered Image" class="img-fluid" width="50%" />
+             {{-- <h2>Welcome to Phyxle dashboard</h2> --}}
          </div>
 
          {{-- <div class="row">
