@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('badge_title');
-            $table->tinyInteger('short_description');
+            $table->tinyText('short_description');
             $table->text('description');
             $table->date('start_date');
             $table->string('start_time');
