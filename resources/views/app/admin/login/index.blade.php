@@ -30,9 +30,10 @@
                 <div class="col-12">
                     <div class="card mx-auto card-login">
                         <div class="card-body">
-                            {{-- <img src="" alt=""> --}}
-                            <h2 class="text-center">{{ env("APP_NAME") }}</h2>
-                            <h4 class="card-title mb-4">Sign in</h4>
+                            <div class="text-center">
+                                <img class="" src="{{ asset('images/logo-2.png') }}" alt="logo.png" width="120">
+                            </div>
+                            <h2 class="text-center mb-2">{{ env("APP_NAME") }}</h2>                           
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
