@@ -5,7 +5,7 @@
     <section class="content-main">
         <div class="content-header">
             <div>
-                <h2 class="content-title card-title">posters List</h2>
+                <h2 class="content-title card-title">Posters List</h2>
                 <p></p>
             </div>
             <div>
