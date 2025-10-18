@@ -31,7 +31,7 @@ $gray-400: #cfdbe6 !default;
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
 $gray-700: #383e50 !default;
-$gray-800: #2f3446 !default;
+$gray-800: hsl(220 75% 51%) !default;
 $gray-900: #1e2231 !default;
 $black:    #000 !default;
 $color-body: #4f5d77;
@@ -39,7 +39,7 @@ $color-heading: #495057;
 $color-menu: #292f46;
 $color-bg-grey: #f7f8f9;
 $border-light: #4d5368;
-$bg-dark-body: #222736;
+$bg-dark-body: hsl(220 70% 30%);
 // scss-docs-end gray-color-variables
 
 // fusv-disable

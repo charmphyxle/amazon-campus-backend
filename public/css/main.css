@@ -3839,16 +3839,16 @@ footer.main-footer {
 }
 
 .card-body {
-  color: #2f3446;
+  color: hsl(220, 75%, 51%);
 }
 
 .dark {
-  background-color: #222736;
+  background-color: hsl(220 70% 30%);
   color: #fff;
 }
 
 .dark .content-main {
-  background-color: #222736;
+  background-color: hsl(220 70% 30%);
   color: #f6f6f6;
 }
 
@@ -3861,7 +3861,7 @@ footer.main-footer {
 }
 
 .dark .bg-light {
-  background-color: #2f3446 !important;
+  background-color: hsl(220 75% 51%) !important;
 }
 
 .dark .brand-wrap .logo {
@@ -3869,7 +3869,7 @@ footer.main-footer {
 }
 
 .dark .navbar-aside {
-  background-color: #2f3446;
+  background-color: hsl(220 75% 51%);
   border-right: 1px solid #383e50;
 }
 
@@ -3908,7 +3908,7 @@ footer.main-footer {
 }
 
 .dark .menu-aside .submenu {
-  background-color: #2f3446;
+  background-color: hsl(220 75% 51%);
   border-color: #383e50;
 }
 
@@ -3921,8 +3921,8 @@ footer.main-footer {
 }
 
 .dark .main-header {
-  background-color: #2f3446;
-  border-bottom: 1px solid #2f3446;
+  background-color: hsl(220 75% 51%);
+  border-bottom: 1px solid hsl(220 75% 51%);
 }
 
 .dark .main-header .nav-item>a {
@@ -3949,7 +3949,7 @@ footer.main-footer {
 }
 
 .dark .box {
-  background: #2f3446;
+  background: hsl(220 75% 51%);
 }
 
 .dark .table {
@@ -3981,7 +3981,7 @@ footer.main-footer {
 }
 
 .dark .btn-light:hover {
-  background-color: #2f3446;
+  background-color: hsl(220 75% 51%);
   border-color: #434a5f;
 }
 
@@ -4099,7 +4099,7 @@ footer.main-footer {
 
 .dark main {
   display: block;
-  background-color: #222736;
+  background-color: hsl(220 70% 30%);
 }
 
 .dark .dropdown-menu {
