@@ -13,14 +13,6 @@
             </div>
         </div>
         <div class="card mb-4">
-            <header class="card-header">
-                <div class="row gx-3">
-                    <div class="col-lg-4 col-md-6 me-auto">
-                        <input type="text" placeholder="Search..." class="form-control" />
-                    </div>
-                </div>
-            </header>
-
             <div class="card-body">
                 <table class="table table-responsive table-hover">
                     <thead>
@@ -35,7 +27,7 @@
                     <tbody>
                         @forelse ($accreditations as $index => $accreditation)
                             <tr>
-                                <td>{{ $accreditations->firstItem() + $index}}</td>
+                                <td>{{ $accreditations->firstItem() + $index }}</td>
                                 <td>
                                     <img src="{{ Storage::url("accreditations/" . $accreditation->image) }}"
                                         alt="accreditation-image.png" width="100">
@@ -48,8 +40,8 @@
                                     <div class="d-flex gap-2">
                                         <a href="{{ route("admin.accreditations.edit", $accreditation) }}"
                                             class="btn btn-sm font-sm rounded btn-info">Edit</a>
-                                        <form action="{{ route("admin.accreditations.destroy", $accreditation) }}" method="POST"
-                                            class="d-inline">
+                                        <form action="{{ route("admin.accreditations.destroy", $accreditation) }}"
+                                            method="POST" class="d-inline">
                                             @csrf
                                             @method("DELETE")
                                             <button type="submit"

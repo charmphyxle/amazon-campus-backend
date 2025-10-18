@@ -13,14 +13,6 @@
             </div>
         </div>
         <div class="card mb-4">
-            <header class="card-header">
-                <div class="row gx-3">
-                    <div class="col-lg-4 col-md-6 me-auto">
-                        <input type="text" placeholder="Search..." class="form-control" />
-                    </div>
-                </div>
-            </header>
-
             <div class="card-body">
                 <div class="row gx-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5">
 
@@ -54,6 +46,11 @@
                             </div>
                         </div>
                     @empty
+                    <div class="d-flex justify-content-center">
+                        <p class="text-center">
+                            No gallery found.
+                        </p>
+                    </div>
                     @endforelse
                 </div>
             </div>
@@ -62,7 +59,7 @@
         <div class="pagination-area mt-30 mb-50">
             <tr>
                 {{ $galleries->links() }}
-            </tr>            
+            </tr>
         </div>
     </section>
 @endsection

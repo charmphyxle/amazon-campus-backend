@@ -13,14 +13,6 @@
             </div>
         </div>
         <div class="card mb-4">
-            <header class="card-header">
-                <div class="row gx-3">
-                    <div class="col-lg-4 col-md-6 me-auto">
-                        <input type="text" placeholder="Search..." class="form-control" />
-                    </div>
-                </div>
-            </header>
-
             <div class="card-body">
                 <table class="table table-responsive table-hover">
                     <thead>

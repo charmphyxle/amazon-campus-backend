@@ -8,30 +8,7 @@
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
         </div>
-        <div class="card mb-4">
-            <header class="card-header">
-                <div class="row align-items-center">
-                    <div class="col-md-3 col-12 me-auto mb-md-0 mb-3">
-                        <select class="form-select">
-                            <option selected>All category</option>
-                            <option>Electronics</option>
-                            <option>Clothes</option>
-                            <option>Automobile</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 col-6">
-                        <input type="date" value="02.05.2021" class="form-control" />
-                    </div>
-                    <div class="col-md-2 col-6">
-                        <select class="form-select">
-                            <option selected>Status</option>
-                            <option>Active</option>
-                            <option>Disabled</option>
-                            <option>Show all</option>
-                        </select>
-                    </div>
-                </div>
-            </header>
+        <div class="card mb-4">           
             <div class="card-body">
                 <table class="table table-responsive table-hover">
                     <thead>
