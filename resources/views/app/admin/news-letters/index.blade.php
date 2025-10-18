@@ -7,7 +7,7 @@
         <div class="content-header">
             <div>
                 <h2 class="content-title card-title">NewsLetter List</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <p></p>
             </div>
         </div>
         <div class="card mb-4">            

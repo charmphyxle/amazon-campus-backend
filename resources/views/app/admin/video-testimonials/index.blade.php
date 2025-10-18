@@ -6,7 +6,7 @@
         <div class="content-header">
             <div>
                 <h2 class="content-title card-title">Video Testimonial List</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <p></p>
             </div>
             <div>
                 <a href="{{ route("admin.video-testimonials.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>

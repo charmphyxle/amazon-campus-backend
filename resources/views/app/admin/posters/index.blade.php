@@ -6,7 +6,7 @@
         <div class="content-header">
             <div>
                 <h2 class="content-title card-title">posters List</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <p></p>
             </div>
             <div>
                 <a href="{{ route("admin.posters.create") }}" class="btn btn-primary btn-sm rounded">Create</a>

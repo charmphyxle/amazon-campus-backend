@@ -6,7 +6,7 @@
         <div class="content-header">
             <div>
                 <h2 class="content-title card-title">Calendar Event List</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <p></p>
             </div>
             <div>
                 <a href="{{ route("admin.calendar-events.create") }}" class="btn btn-primary btn-sm rounded">Create new</a>
