@@ -137,7 +137,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3" align="center">No event item found.</td>
+                                <td colspan="4" align="center">No event item found.</td>
                             </tr>
                         @endforelse
                     </tbody>
