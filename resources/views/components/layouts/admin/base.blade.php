@@ -12,7 +12,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset("imgs/theme/favicon.svg") }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset("favicon.ico") }}" />
     <!-- Template CSS -->
     <script src="{{ asset("js/vendors/color-modes.js") }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset("css/plyr.css") }}">
