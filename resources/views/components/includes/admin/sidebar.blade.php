@@ -1,7 +1,7 @@
 <aside class="navbar-aside" id="offcanvas_aside">
     <div class="aside-top">
         <a href="{{ route('admin.index') }}" class="brand-wrap">
-            <img src="{{ asset('imgs/theme/logo.svg') }}" class="logo" alt="Nest Dashboard" />
+            <img src="{{ asset('images/logo-1.png') }}" class="logo" alt="Nest Dashboard" />
         </a>
         <div>
             <button class="btn btn-icon btn-aside-minimize"><i
